@@ -147,3 +147,10 @@ public/
 ## 致谢
 
 - 术语数据：[embodiedterms.com](https://embodiedterms.com) —《具身智能新手名词表》
+
+## 联系方式
+
+- **邮箱**：chenyimu691@gmail.com
+- **微信**：15303638650
+
+欢迎反馈使用问题、提交词条建议，或交流具身智能/机器人相关话题。
