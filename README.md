@@ -129,6 +129,31 @@ public/
 - TypeScript + React（仅设置页）
 - 内容脚本使用原生 DOM（体积小、性能好）
 
+### 用 AI 助手修改本项目
+
+本项目自带 [`AGENTS.md`](AGENTS.md)（AI 助手项目说明书，说明目录结构、构建链路、
+三层识别机制、许可边界与常见坑）。支持该约定的工具会自动读取它。
+
+**方式一：本地 Coding Agent**（Claude Code / Cursor / Codex / Reasonix 等，能直接改文件）
+
+```bash
+git clone https://github.com/chenyimu691-gif/plainai.git
+cd plainai
+npm install
+```
+
+用 AI 工具打开该目录，直接提需求（如"把 tooltip 的主题色改成深蓝"）即可。
+
+**方式二：网页版对话 AI**（ChatGPT / DeepSeek / 豆包等，不能直接改文件）
+
+把 [`AGENTS.md`](AGENTS.md) 连同要改的文件内容一起贴给它，让它输出修改后的代码，
+再自行替换。
+
+**方式三：GitHub Copilot**
+
+仓库已包含 [`.github/copilot-instructions.md`](.github/copilot-instructions.md)，
+Copilot 在对话与补全时会自动参考。
+
 ## 隐私
 
 - 词库在本扩展内本地运行，不联网
