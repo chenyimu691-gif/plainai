@@ -1,0 +1,30 @@
+{
+  "name": "plainai-translator",
+  "description": "降维翻译器 — 把高密度行业术语翻译成人话",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "npm run dict && wxt build",
+    "build:firefox": "npm run dict && wxt build -b firefox",
+    "dict": "esbuild lib/dictionary/lookup.ts --bundle --format=cjs --outfile=.tmp-dict.cjs --log-level=error && node scripts/export-dict.cjs",
+    "zip": "npm run build && wxt zip",
+    "zip:firefox": "npm run build:firefox && wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@wxt-dev/module-react": "^1.1.5",
+    "typescript": "^5.9.3",
+    "web-ext": "^10.5.0",
+    "wxt": "^0.20.27"
+  }
+}

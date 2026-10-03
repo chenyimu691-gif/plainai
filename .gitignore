@@ -1,0 +1,18 @@
+# 依赖与构建产物
+node_modules/
+.output/
+.wxt/
+.tmp-dict.cjs
+
+# 原始词库数据（5MB，可由脚本从 embodiedterms.com 重新获取，见 LICENSE-CONTENT.md）
+embodiedterms_zh.json
+
+# 编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
