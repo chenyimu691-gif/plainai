@@ -400,7 +400,7 @@ export default defineContentScript({
     async function init() {
       // 异步加载词库（扩展内本地 JSON，无网络请求）
       try {
-        const res = await fetch(browser.runtime.getURL('dict.json'));
+        const res = await fetch(browser.runtime.getURL('/dict.json'));
         const dict: DictEntry[] = await res.json();
         buildIndex(dict);
         console.log('[PlainAI] 降维翻译器已加载，词库', dict.length, '条');

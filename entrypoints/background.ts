@@ -9,7 +9,7 @@ export default defineBackground(() => {
     // 设置页展示词库规模
     if (message.type === 'GET_DICT_STATS') {
       try {
-        const res = await fetch(browser.runtime.getURL('dict.json'));
+        const res = await fetch(browser.runtime.getURL('/dict.json'));
         const dict: Array<{ category?: string }> = await res.json();
         const byCategory: Record<string, number> = {};
         for (const entry of dict) {
