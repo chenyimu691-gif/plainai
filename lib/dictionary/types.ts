@@ -1,7 +1,8 @@
 /** 术语词条结构 */
 export interface DictEntry {
   term: string;               // 术语
-  category: 'embodied-ai' | 'robotics' | 'aiml' | 'general';
+  category: 'embodied-ai' | 'robotics' | 'aiml' | 'general'
+    | 'technical' | 'business' | 'finance' | 'legal' | 'medical' | 'science' | 'internet' | 'education';
   plain: string;              // 大白话解释
   example?: string;           // 使用场景例句
   analogy?: string;           // 一句话类比

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "createdAt": "2026-10-19T02:00:00.000Z",
+  "count": 0,
+  "domains": [],
+  "snapshot": {
+    "path": "snapshots/1-a6a20076da005b27c9afc3a5d5b2457798c0ac817d1abc38b2fee4398ac3f133.json",
+    "sha256": "a6a20076da005b27c9afc3a5d5b2457798c0ac817d1abc38b2fee4398ac3f133",
+    "bytes": 26
+  },
+  "deltas": []
+}

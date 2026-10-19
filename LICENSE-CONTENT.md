@@ -65,3 +65,11 @@ python -X utf8 scripts/build_dict.py   # 需要根目录有 embodiedterms_zh.jso
 
 数据文件可从 [embodiedterms.com](https://embodiedterms.com) 获取
 （浏览器开发者工具可见其 `/data/zh.<hash>.json` 引用）。
+
+## 五、独立发布的远程增量词库
+
+新增的 `data/dictionary/entries.json` 与 `public/dictionary/` 是独立的数据层，按词条记录其原始来源、固定提交链接、上游许可证、署名、原始定义及 PlainAI 的翻译/简化记录。**这些数据不会因为被 AI 改写而自动变成 MIT，也不会改变上述 embodiedterms 数据的 CC BY-NC 4.0 许可。**
+
+自动准入范围仅包括经过内容范围审阅的 MIT、Apache-2.0、CC0-1.0、CC-BY-4.0 来源。完整上游许可通知保存在 `data/dictionary/licenses/`，并随远程发布内容提供；来源范围证据见 `data/dictionary/source-review.md`。再分发者需保留适用的许可全文、署名与改写标记；CC BY 4.0 内容按其条件署名，并明确说明翻译和简化。各来源的许可条件继续分别适用，不将整个混合词库笼统重标为单一许可。
+
+发现报告只列出待核实的仓库候选，不代表已获准复制内容。未知或不在自动准入范围内的许可不自动采集；许可证变化需人工审阅 PR 更新证据和锁定值。详见 [每周词库更新说明](docs/dictionary-updates.md)。

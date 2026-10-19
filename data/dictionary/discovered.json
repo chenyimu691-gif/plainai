@@ -1,0 +1,294 @@
+{
+  "domains": [
+    "technical",
+    "business",
+    "finance",
+    "legal",
+    "medical",
+    "science",
+    "internet",
+    "education"
+  ],
+  "candidates": [
+    {
+      "domain": "technical",
+      "repository": "cncf/glossary",
+      "url": "https://github.com/cncf/glossary",
+      "licenseHint": "Apache-2.0",
+      "description": "The CNCF Cloud Native Glossary Project aims to define cloud native concepts in clear and simple language, making them accessible to anyone —  whether they have a technical background or not (https://glossary.cncf.io)."
+    },
+    {
+      "domain": "technical",
+      "repository": "snrazavi/Persian-AI-and-Machine-Learning-Glossary",
+      "url": "https://github.com/snrazavi/Persian-AI-and-Machine-Learning-Glossary",
+      "licenseHint": "MIT",
+      "description": "This project aims to provide a comprehensive and up-to-date collection of Persian translations for technical terms and concepts in the field of artificial intelligence and machine learning. Our goal is to facilitate better communication and understanding of these complex topics for Persian-speaking learners, researchers, and practitioners."
+    },
+    {
+      "domain": "technical",
+      "repository": "dwyl/technical-glossary",
+      "url": "https://github.com/dwyl/technical-glossary",
+      "licenseHint": "GPL-2.0",
+      "description": "📝 A collaborative technical glossary for key words and terms to help anyone learn and understand concepts and prepare for a career as a creative technologist!  😕 > 🤔 > 💡 > 😊 🎉 🚀"
+    },
+    {
+      "domain": "technical",
+      "repository": "do-community/developer-glossary",
+      "url": "https://github.com/do-community/developer-glossary",
+      "licenseHint": "MIT",
+      "description": "A community-built glossary of technical terms."
+    },
+    {
+      "domain": "technical",
+      "repository": "TechMC-Glossary/TechMC-Glossary",
+      "url": "https://github.com/TechMC-Glossary/TechMC-Glossary",
+      "licenseHint": "MIT",
+      "description": "A glossary of Minecraft technical terms"
+    },
+    {
+      "domain": "business",
+      "repository": "Niki9001/purview-unified-sdk",
+      "url": "https://github.com/Niki9001/purview-unified-sdk",
+      "licenseHint": "NOASSERTION",
+      "description": "Python SDK for Microsoft Purview Unified Catalog APIs, supporting data products, business domains, glossary terms, CDEs, relationships, OKRs, policies, and data quality automation."
+    },
+    {
+      "domain": "business",
+      "repository": "SixArm/startup-business-guide",
+      "url": "https://github.com/SixArm/startup-business-guide",
+      "licenseHint": "NOASSERTION",
+      "description": "Startup Business Guide: this book explains one topic per page, like a big glossary, easy wiki, quick encyclopedia, or summary notes. Edited by Joel Parker Henderson (@joelparkerhenderson)."
+    },
+    {
+      "domain": "business",
+      "repository": "SixArm/business-lingo-guide",
+      "url": "https://github.com/SixArm/business-lingo-guide",
+      "licenseHint": "NOASSERTION",
+      "description": "Business Lingo Guide: this book explains one topic per page, like a big glossary, easy wiki, quick encyclopedia, or summary notes. Edited by Joel Parker Henderson (@joelparkerhenderson)."
+    },
+    {
+      "domain": "business",
+      "repository": "Bluetab/td-bg",
+      "url": "https://github.com/Bluetab/td-bg",
+      "licenseHint": "EPL-1.0",
+      "description": "TdBG is a back-end service developed as part of True Dat project that supports the genearation of a Business Glossary"
+    },
+    {
+      "domain": "business",
+      "repository": "acryldata/business-glossary-sync-action",
+      "url": "https://github.com/acryldata/business-glossary-sync-action",
+      "licenseHint": "NOASSERTION",
+      "description": ""
+    },
+    {
+      "domain": "finance",
+      "repository": "ScryptoNoob/Glossary-of-Acronyms-Definitions",
+      "url": "https://github.com/ScryptoNoob/Glossary-of-Acronyms-Definitions",
+      "licenseHint": "NOASSERTION",
+      "description": "A repo of Anti-Money Laundering (AML), Counter Terrorist Financing (CTF) & Privacy jargon"
+    },
+    {
+      "domain": "finance",
+      "repository": "marcofanti/agentic-ai-8-week-class",
+      "url": "https://github.com/marcofanti/agentic-ai-8-week-class",
+      "licenseHint": "NOASSERTION",
+      "description": "8-week Agentic AI course with labs, solutions, and finance app  Initial course structure: weekly labs (setup, prompting, low-code app,  agent internals, skills, MCP, evals, capstone), instructor solution  notes, glossary, and the Week 3 React/Vite finance-app starter."
+    },
+    {
+      "domain": "finance",
+      "repository": "evans-0/finance",
+      "url": "https://github.com/evans-0/finance",
+      "licenseHint": "MIT",
+      "description": "Markets terminal + financial literacy hub. Live data, calculators, AI-powered glossary, and plain-English explainers for Indian investors."
+    },
+    {
+      "domain": "finance",
+      "repository": "nicholashidalgo/llm-text-to-sql-finance",
+      "url": "https://github.com/nicholashidalgo/llm-text-to-sql-finance",
+      "licenseHint": "MIT",
+      "description": "Description: Governed natural-language-to-SQL platform for finance teams with RBAC, audit logging, and KPI glossary"
+    },
+    {
+      "domain": "finance",
+      "repository": "zhycn/qian-study",
+      "url": "https://github.com/zhycn/qian-study",
+      "licenseHint": "MIT",
+      "description": "一个致力于将高冷金融术语翻译成大白话的开源知识库。拒绝晦涩难懂，通过生活化类比与可视化图解，带你轻松读懂金融世界的底层逻辑。A human-friendly finance glossary that explains complex concepts with simple analogies."
+    },
+    {
+      "domain": "legal",
+      "repository": "Sfedfcv/redesigned-pancake",
+      "url": "https://github.com/Sfedfcv/redesigned-pancake",
+      "licenseHint": "NOASSERTION",
+      "description": "Skip to content github / docs Code Issues 80 Pull requests 35 Discussions Actions Projects 2 Security Insights Merge branch 'main' into 1862-Add-Travis-CI-migration-table  1862-Add-Travis-CI-migration-table (#1869, Iixixi/ZachryTylerWood#102, THEBOLCK79/docs#1, sbnbhk/docs#1) @martin389 martin389 committed on Dec 9, 2020 2 parents 2f9ec0c + 1588f50 commit 1a56ed136914e522f3a23ecc2be1c49f479a1a6a Showing 501 changed files with 5,397 additions and 1,362 deletions.   2  .github/allowed-actions.js"
+    },
+    {
+      "domain": "legal",
+      "repository": "statedecoded/legal-dictionary",
+      "url": "https://github.com/statedecoded/legal-dictionary",
+      "licenseHint": "NOASSERTION",
+      "description": "A glossary of terms specific to the legal practice, sourced from the public domain."
+    },
+    {
+      "domain": "legal",
+      "repository": "openadvocate/readclearly",
+      "url": "https://github.com/openadvocate/readclearly",
+      "licenseHint": "GPL-3.0",
+      "description": "Free plain language legal glossaries"
+    },
+    {
+      "domain": "legal",
+      "repository": "Cashcoin123/Cashcoin123",
+      "url": "https://github.com/Cashcoin123/Cashcoin123",
+      "licenseHint": "NOASSERTION",
+      "description": "# Application card: GitHub Copilot Chat  Learn how to use GitHub Copilot Chat responsibly by understanding its purposes, capabilities, and limitations.  ## What is an Application Card?  <!-- Do not modify this text.-->  GitHub’s application and platform cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology,"
+    },
+    {
+      "domain": "legal",
+      "repository": "dmang69/bc-legal-ai",
+      "url": "https://github.com/dmang69/bc-legal-ai",
+      "licenseHint": "MIT",
+      "description": "legal-terminology-core — BC/Canadian legal glossary, organized domain, statute citations case references evidence-law-canada — Admissibility, hearsay, privilege, cross-examination strategy RTB JR contexts statutory-interpretation — Modern Canadian approach (Vavilov, purposive analysis, common interpretation canons) administrative-law-canada"
+    },
+    {
+      "domain": "medical",
+      "repository": "PlanTL-GOB-ES/MeSpEn_Glossaries",
+      "url": "https://github.com/PlanTL-GOB-ES/MeSpEn_Glossaries",
+      "licenseHint": "NOASSERTION",
+      "description": "[PlanTL/medicine/lexical/terminological resource] Bilingual medical glossaries for various language pairs."
+    },
+    {
+      "domain": "medical",
+      "repository": "AutoJunjie/medical-glossary-extraction",
+      "url": "https://github.com/AutoJunjie/medical-glossary-extraction",
+      "licenseHint": "NOASSERTION",
+      "description": "a demo to using LLM to extract and align glossary from medical content"
+    },
+    {
+      "domain": "medical",
+      "repository": "xuanbinhle/VLSP25-medical-MT-glossary-driven-approach",
+      "url": "https://github.com/xuanbinhle/VLSP25-medical-MT-glossary-driven-approach",
+      "licenseHint": "MIT",
+      "description": "A repository implementing the Glossary‑Driven Fine‑Tuning for Low‑Resource Medical Machine Translation Using QLoRA system, submitted for the VLSP 2025 Shared Task (“Medical Machine Translation with Limited Parameters and Resources Using Pre‑trained Models”)."
+    },
+    {
+      "domain": "medical",
+      "repository": "SenjuSama2012/SenjuSama2012",
+      "url": "https://github.com/SenjuSama2012/SenjuSama2012",
+      "licenseHint": "NOASSERTION",
+      "description": "Hi 👋 My name is Jahmal Camp ============================  Rust Developer 🦀 | Web Developer 🌎 | Solana Developer 💱 ----------------------------------------------------------  I'm a United States Air Force Veteran. I'm medically retired and I worked Aircraft Structural Maintenance. Since being medically separated was on the horizon, I've spent my time pursuing my interest in software development. I instantly gravitated towards the Rust programming language instantly. The innovations, community"
+    },
+    {
+      "domain": "medical",
+      "repository": "spandana9318/medical-glossary-hover",
+      "url": "https://github.com/spandana9318/medical-glossary-hover",
+      "licenseHint": "NOASSERTION",
+      "description": "AI-Powered Medical Glossary Hover Tool A smart, interactive glossary system that provides instant, simplified definitions of medical terms via hover (desktop) or tap (mobile). Built with Vue.js and Python, this tool enhances accessibility on healthcare platforms by integrating AI-generated explanations and contextual awareness."
+    },
+    {
+      "domain": "science",
+      "repository": "gaearon/whatthefuck.is",
+      "url": "https://github.com/gaearon/whatthefuck.is",
+      "licenseHint": "NOASSERTION",
+      "description": "An opinionated glossary of computer science terms for front-end developers. Written by Dan Abramov."
+    },
+    {
+      "domain": "science",
+      "repository": "JuanitoFatas/Computer-Science-Glossary",
+      "url": "https://github.com/JuanitoFatas/Computer-Science-Glossary",
+      "licenseHint": "NOASSERTION",
+      "description": "aka CSG, English -> Chinese"
+    },
+    {
+      "domain": "science",
+      "repository": "carpentries/glosario",
+      "url": "https://github.com/carpentries/glosario",
+      "licenseHint": "NOASSERTION",
+      "description": "A multilingual glossary for computing and data science terms."
+    },
+    {
+      "domain": "science",
+      "repository": "rstudio-education/glossRy",
+      "url": "https://github.com/rstudio-education/glossRy",
+      "licenseHint": "NOASSERTION",
+      "description": "A glossary of terms used in  and around data science."
+    },
+    {
+      "domain": "science",
+      "repository": "CAPRDZV/Capsulepaper",
+      "url": "https://github.com/CAPRDZV/Capsulepaper",
+      "licenseHint": "Apache-2.0",
+      "description": "论文 Hinton等的论文  Matrix capsules with EM routing - Hinton, G. E., Sabour, S. and Frosst, N. (2018) Dynamic Routing Between Capsules - Sabour, S., Frosst, N. and Hinton, G.E. (2017) Transforming Auto-encoders - Hinton, G. E., Krizhevsky, A. and Wang, S. D. (2011) A parallel computation that assigns canonical object-based frames of reference. - Hinton, G.E. (1981) Shape representation in parallel systems - Hinton, G.E. (1981) Optimizing Neural Networks that Generate Images - Tijmen Tieleman’s disser"
+    },
+    {
+      "domain": "internet",
+      "repository": "Sfedfcv/redesigned-pancake",
+      "url": "https://github.com/Sfedfcv/redesigned-pancake",
+      "licenseHint": "NOASSERTION",
+      "description": "Skip to content github / docs Code Issues 80 Pull requests 35 Discussions Actions Projects 2 Security Insights Merge branch 'main' into 1862-Add-Travis-CI-migration-table  1862-Add-Travis-CI-migration-table (#1869, Iixixi/ZachryTylerWood#102, THEBOLCK79/docs#1, sbnbhk/docs#1) @martin389 martin389 committed on Dec 9, 2020 2 parents 2f9ec0c + 1588f50 commit 1a56ed136914e522f3a23ecc2be1c49f479a1a6a Showing 501 changed files with 5,397 additions and 1,362 deletions.   2  .github/allowed-actions.js"
+    },
+    {
+      "domain": "internet",
+      "repository": "cirosantilli/decoding-chinese-internet-pdf-download",
+      "url": "https://github.com/cirosantilli/decoding-chinese-internet-pdf-download",
+      "licenseHint": "NOASSERTION",
+      "description": "Decoding the Chinese Internet - A Glossary of Political Slang  - PDF dook download for free, ebook by China Digital Times CC-BY-NC-SA, published date: 2015, ISBN 978-0-9898243-4-7"
+    },
+    {
+      "domain": "internet",
+      "repository": "Trust155/Hello-world",
+      "url": "https://github.com/Trust155/Hello-world",
+      "licenseHint": "NOASSERTION",
+      "description": "--- title: Hello World intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.' versions:   fpt: '*'   ghes: '*'   ghae: '*'   ghec: '*' type: quick_start topics:   - Pull requests   - Fundamentals miniTocMaxHeadingLevel: 3 ---  ## Introduction  {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.  This tutorial teaches you {% data"
+    },
+    {
+      "domain": "internet",
+      "repository": "internetofwater/Glossary",
+      "url": "https://github.com/internetofwater/Glossary",
+      "licenseHint": "NOASSERTION",
+      "description": "An ontology of water, data, and internal internet of water concepts"
+    },
+    {
+      "domain": "internet",
+      "repository": "milleyin/TaiWanChinaInternetGlossary",
+      "url": "https://github.com/milleyin/TaiWanChinaInternetGlossary",
+      "licenseHint": "NOASSERTION",
+      "description": "持續整理中..."
+    },
+    {
+      "domain": "education",
+      "repository": "Sfedfcv/redesigned-pancake",
+      "url": "https://github.com/Sfedfcv/redesigned-pancake",
+      "licenseHint": "NOASSERTION",
+      "description": "Skip to content github / docs Code Issues 80 Pull requests 35 Discussions Actions Projects 2 Security Insights Merge branch 'main' into 1862-Add-Travis-CI-migration-table  1862-Add-Travis-CI-migration-table (#1869, Iixixi/ZachryTylerWood#102, THEBOLCK79/docs#1, sbnbhk/docs#1) @martin389 martin389 committed on Dec 9, 2020 2 parents 2f9ec0c + 1588f50 commit 1a56ed136914e522f3a23ecc2be1c49f479a1a6a Showing 501 changed files with 5,397 additions and 1,362 deletions.   2  .github/allowed-actions.js"
+    },
+    {
+      "domain": "education",
+      "repository": "rstudio-education/glossRy",
+      "url": "https://github.com/rstudio-education/glossRy",
+      "licenseHint": "NOASSERTION",
+      "description": "A glossary of terms used in  and around data science."
+    },
+    {
+      "domain": "education",
+      "repository": "Cashcoin123/Cashcoin123",
+      "url": "https://github.com/Cashcoin123/Cashcoin123",
+      "licenseHint": "NOASSERTION",
+      "description": "# Application card: GitHub Copilot Chat  Learn how to use GitHub Copilot Chat responsibly by understanding its purposes, capabilities, and limitations.  ## What is an Application Card?  <!-- Do not modify this text.-->  GitHub’s application and platform cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology,"
+    },
+    {
+      "domain": "education",
+      "repository": "Farid504/crypto-education-glossary",
+      "url": "https://github.com/Farid504/crypto-education-glossary",
+      "licenseHint": "NOASSERTION",
+      "description": "crypto-education-glossary"
+    },
+    {
+      "domain": "education",
+      "repository": "ProfPaige/open-source-education-glossary",
+      "url": "https://github.com/ProfPaige/open-source-education-glossary",
+      "licenseHint": "NOASSERTION",
+      "description": ""
+    }
+  ]
+}

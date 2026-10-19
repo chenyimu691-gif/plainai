@@ -95,6 +95,8 @@ if (fs.existsSync(outDir)) {
   }
   check('background.js 存在', fs.existsSync(bgJs));
   check('dict.json 已复制到产物', fs.existsSync(outDict));
+  check('在线词库完整许可声明已随扩展打包', fs.existsSync(path.join(outDir, 'dictionary-NOTICES.txt')));
+  check('历史在线词库未重复打包', !fs.existsSync(path.join(outDir, 'dictionary')));
 
   const manifest = JSON.parse(fs.readFileSync(path.join(outDir, 'manifest.json'), 'utf8'));
   const war = manifest.web_accessible_resources || [];

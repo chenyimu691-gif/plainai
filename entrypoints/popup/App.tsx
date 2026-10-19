@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { AIConfig } from '../../lib/utils/ai';
 import { DEFAULT_AI_CONFIG } from '../../lib/utils/ai';
+import type { SyncStatus } from '../../lib/dictionary/remote-sync';
 
 const STORAGE_KEYS = {
   aiConfig: 'plainai_ai_config',
@@ -14,6 +15,8 @@ export default function SettingsPage() {
   const [localFirst, setLocalFirst] = useState(true);
   const [saved, setSaved] = useState(false);
   const [stats, setStats] = useState<{ total: number } | null>(null);
+  const [dictionaryStatus, setDictionaryStatus] = useState<SyncStatus | null>(null);
+  const [checkingDictionary, setCheckingDictionary] = useState(false);
 
   // 加载设置
   useEffect(() => {
@@ -30,6 +33,7 @@ export default function SettingsPage() {
       try {
         const res = await browser.runtime.sendMessage({ type: 'GET_DICT_STATS' });
         if (res) setStats(res);
+        setDictionaryStatus(await browser.runtime.sendMessage({ type: 'GET_DICT_STATUS' }));
       } catch {}
     })();
   }, []);
@@ -43,6 +47,17 @@ export default function SettingsPage() {
     });
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
+  };
+
+  const updateDictionary = async () => {
+    setCheckingDictionary(true);
+    try {
+      setDictionaryStatus(await browser.runtime.sendMessage({ type: 'SYNC_DICTIONARY' }));
+      const result = await browser.runtime.sendMessage({ type: 'GET_DICT_STATS' });
+      if (result) setStats(result);
+    } catch {
+      setDictionaryStatus({ checkedAt: new Date().toISOString(), error: '后台服务暂不可用' });
+    } finally { setCheckingDictionary(false); }
   };
 
   return (
@@ -64,9 +79,20 @@ export default function SettingsPage() {
         </p>
         {stats && (
           <p style={{ fontSize: '10px', color: '#666', margin: '4px 0 0' }}>
-            内置词库 {stats.total} 条
+            本地可用词库 {stats.total} 条
           </p>
         )}
+      </div>
+
+      <div style={{ padding: '10px 12px', background: '#16213e', borderRadius: '8px', marginBottom: '12px', fontSize: '11px', lineHeight: 1.7 }}>
+        <div>词库每周更新，自动同步到本地供离线使用。</div>
+        <div style={{ color: dictionaryStatus?.error ? '#ffd54f' : '#aaa' }} title={dictionaryStatus?.error}>
+          {dictionaryStatus?.error ? '检查失败，继续使用已保存词库。' : dictionaryStatus?.version ? `在线词库 v${dictionaryStatus.version} · ${dictionaryStatus.count ?? 0} 条` : '尚未同步在线词库，内置词库可正常使用。'}
+        </div>
+        {dictionaryStatus?.checkedAt && <div style={{ color: '#888' }}>上次检查：{new Date(dictionaryStatus.checkedAt).toLocaleString()}</div>}
+        <button type="button" onClick={updateDictionary} disabled={checkingDictionary} style={{ marginTop: '6px', background: '#0f3460', color: '#fff', border: 0, borderRadius: '4px', padding: '5px 10px', cursor: 'pointer' }}>
+          {checkingDictionary ? '检查中…' : '检查词库更新'}
+        </button>
       </div>
 
       {/* 开关 */}

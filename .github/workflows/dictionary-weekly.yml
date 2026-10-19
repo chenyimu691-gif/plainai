@@ -1,0 +1,91 @@
+name: Weekly dictionary update
+
+on:
+  schedule:
+    # Monday 02:00 UTC = Monday 10:00 Asia/Shanghai. GitHub may delay scheduled runs.
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-dictionary-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      HAS_DICTIONARY_BOT_TOKEN: ${{ secrets.DICTIONARY_BOT_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Discover approved candidates, collect, simplify and independently review
+        run: npm run dictionary:update
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DICTIONARY_API_KEY: ${{ secrets.DICTIONARY_API_KEY }}
+          DICTIONARY_API_BASE: ${{ vars.DICTIONARY_API_BASE }}
+          DICTIONARY_WIRE_API: ${{ vars.DICTIONARY_WIRE_API }}
+          DICTIONARY_GENERATOR_MODEL: ${{ secrets.DICTIONARY_GENERATOR_MODEL }}
+          DICTIONARY_REVIEWER_MODEL: ${{ secrets.DICTIONARY_REVIEWER_MODEL }}
+      - run: npm test
+      - run: npm run dictionary:verify
+      - run: npm run dictionary:build
+      - run: npm run compile
+      - run: npm run build
+      - run: node scripts/verify.cjs
+      - run: npm run build:firefox
+      - name: Open or update the data pull request
+        id: pr
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ secrets.DICTIONARY_BOT_TOKEN || github.token }}
+          base: ${{ github.event.repository.default_branch }}
+          branch: dictionary/weekly-update
+          delete-branch: true
+          commit-message: 'chore(dictionary): refresh reviewed weekly entries'
+          title: 'chore(dictionary): weekly reviewed dictionary update'
+          body: |
+            This scheduled data update passed the dictionary license, provenance,
+            schema, deduplication and quality checks, offline tests, TypeScript,
+            Chrome verification and Firefox build before opening this PR.
+
+            Inspect the entry provenance and review records, discovery candidates
+            and quarantine report. Newly discovered sources remain unapproved;
+            source catalog or pinned license changes require a separate human PR.
+            Model review cannot establish absolute semantic correctness.
+
+            Publication occurs only after merge to main and a successful trusted
+            Pages deployment. This run does not push directly to main.
+          add-paths: |
+            data/dictionary/entries.json
+            data/dictionary/discovered.json
+            data/dictionary/quarantine.json
+            public/dictionary/
+      - name: Verify required classic branch protection before auto-merge
+        id: merge_guard
+        if: vars.DICTIONARY_AUTO_MERGE == 'true' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.DICTIONARY_BOT_TOKEN }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: node --experimental-strip-types scripts/dictionary/merge-guard.ts
+      - name: Request protected auto-merge only when explicitly enabled
+        if: vars.DICTIONARY_AUTO_MERGE == 'true' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.merge_guard.outputs.eligible == 'true' && steps.pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.DICTIONARY_BOT_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.pull-request-number }}
+        run: gh pr merge "$PR_NUMBER" --auto --squash

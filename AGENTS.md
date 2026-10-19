@@ -159,3 +159,12 @@ node scripts/verify.cjs  # 11 项检查
 - 跑 `npm run compile` 确认无类型错误
 - 跑 `node scripts/verify.cjs` 确认 11 项通过
 - 涉及词库数据的改动，确认没有违反 CC BY-NC 的署名与商用限制
+
+## 每周远程词库更新
+
+- Node.js 24；在现有 WXT/TypeScript 中实现，不需要新增后端。
+- `scripts/dictionary/` 负责来源采集、双模型生成与复核、快照和增量；`data/dictionary/` 保存来源、许可证据与已审核数据。
+- `lib/dictionary/remote-schema.ts` 和 `remote-sync.ts` 是构建脚本与扩展共享的协议/同步逻辑；内置词条及别名优先，远程失败保留可用缓存。
+- 新来源和许可证哈希变动必须单独审阅；发现报告不代表来源已批准。原有 CC BY-NC 条件继续适用。
+- 改动更新功能还须运行 `npm test`、`npm run dictionary:verify` 和 `npm run dictionary:build`。`scripts/verify.cjs` 现有 13 项检查，包含完整许可声明和在线发布历史不进入扩展包的验证。
+- 配置、发布和自动合并边界见 [docs/dictionary-updates.md](docs/dictionary-updates.md)。
