@@ -3,6 +3,7 @@ node_modules/
 .output/
 .wxt/
 .tmp-dict.cjs
+.dictionary-site/
 
 # 原始词库数据（5MB，可由脚本从 embodiedterms.com 重新获取，见 LICENSE-CONTENT.md）
 embodiedterms_zh.json

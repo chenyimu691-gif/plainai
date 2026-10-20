@@ -1,4 +1,9 @@
 import type { DictEntry } from '../lib/dictionary/types';
+import { mergeDictionaries } from '../lib/dictionary/remote-schema';
+import { loadPackagedSeed, preferSnapshot } from '../lib/dictionary/packaged-seed';
+import { REMOTE_CACHE_KEY, validateRemoteCache } from '../lib/dictionary/remote-sync';
+import type { RemoteEntry } from '../lib/dictionary/remote-schema';
+import { CATEGORY_STORAGE_KEY, readCategories, filterCategories } from '../lib/dictionary/categories';
 import { getAIConfig, isLocalFirst, explainWithAI } from '../lib/utils/ai';
 
 export default defineContentScript({
@@ -100,10 +105,8 @@ export default defineContentScript({
     // ---- 词库索引（异步加载 JSON 后构建）----
     let termMap = new Map<string, DictEntry>();
     let combinedRegex: RegExp | null = null;
-
-    // 疑似术语自动识别：英文大写缩写（VLA/LLM/RT-2）——即使词库没有也能高亮，悬停走 AI 解释
-    const acronymPattern =
-      '(?<!\\w)([A-Z]{2,8}(?:-[A-Z0-9]+)*|[A-Z]{2,8}[0-9]+(?:-[A-Z0-9]+)*)(?!\\w)';
+    let dictionaryRevision = 0;
+    let refreshRevision = 0;
 
     /**
      * 用词库构建索引与匹配正则。
@@ -124,10 +127,8 @@ export default defineContentScript({
         .sort((a, b) => b.length - a.length)
         .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
         .join('|');
-      combinedRegex = new RegExp(
-        `(?<!\\w)(${termPattern})|${acronymPattern}`,
-        'g'
-      );
+      // Only explicitly selected dictionary entries are marked; unknown abbreviations bypass no selection.
+      combinedRegex = termPattern ? new RegExp(`(?<!\\w)(${termPattern})(?!\\w)`, 'g') : null;
     }
 
     // 常见词排除表（人人知道的缩写不标注，避免噪音）
@@ -173,11 +174,18 @@ export default defineContentScript({
 
       tooltipEl = document.createElement('div');
       tooltipEl.className = 'plainai-tooltip';
+      const remote = 'source' in entry ? entry as RemoteEntry : null;
       tooltipEl.innerHTML = `
         <div class="term-label">${escapeHtml(entry.term)}</div>
         <span class="term-source">📖 词库</span>
         <div class="term-plain">${escapeHtml(entry.plain)}</div>
         ${entry.analogy ? `<div class="term-analogy">💡 ${escapeHtml(entry.analogy)}</div>` : ''}
+        ${remote ? `<div style="margin-top:8px;font-size:11px;line-height:1.5;color:#aaa">
+          来源：<a href="${escapeHtml(remote.source.url)}" target="_blank" rel="noopener noreferrer" style="color:#4fc3f7">${escapeHtml(remote.source.attribution)}</a>
+          · <a href="${escapeHtml(remote.source.licenseUrl)}" target="_blank" rel="noopener noreferrer" style="color:#4fc3f7">${escapeHtml(remote.source.license)}</a>
+          <br>${'method' in remote.quality ? '保留来源中文原文，已通过程序检查。' : '解释经 AI 改写并独立复核。'}用于概念学习。
+          ${remote.context?.jurisdiction ? `<br>适用地区：${escapeHtml(remote.context.jurisdiction)}；截至 ${escapeHtml(remote.context.asOf ?? '')}` : ''}
+        </div>` : ''}
         <div class="term-community">
           <a href="https://your-community-link.com" target="_blank">🤝 加入具身智能交流群</a>
         </div>
@@ -274,6 +282,7 @@ export default defineContentScript({
 
     /** 标注文本节点，返回是否标注了任何内容 */
     function annotateNode(node: Node): boolean {
+      if (!node.isConnected) return false;
       if (node.nodeType !== Node.TEXT_NODE) return false;
       const text = node.textContent ?? '';
       if (!text.trim()) return false;
@@ -308,6 +317,7 @@ export default defineContentScript({
         const span = document.createElement('span');
         span.className = 'plainai-term';
         span.dataset.term = matchedTerm ?? '';
+        span.dataset.plainaiOwned = 'true';
 
         // 鼠标悬停
         span.addEventListener('mouseenter', (e) => {
@@ -380,7 +390,9 @@ export default defineContentScript({
       let annotated = 0;
       // 分批处理，不阻塞主线程
       let i = 0;
+      const revision = dictionaryRevision;
       function processBatch() {
+        if (revision !== dictionaryRevision) return;
         const batchSize = 100;
         const end = Math.min(i + batchSize, nodes.length);
         for (; i < end; i++) {
@@ -397,13 +409,39 @@ export default defineContentScript({
     }
 
     // ---- 启动 ----
-    async function init() {
-      // 异步加载词库（扩展内本地 JSON，无网络请求）
+    async function refreshDictionary() {
+      const revision = ++refreshRevision;
+      let dict: DictEntry[];
       try {
-        const res = await fetch(browser.runtime.getURL('/dict.json'));
-        const dict: DictEntry[] = await res.json();
-        buildIndex(dict);
-        console.log('[PlainAI] 降维翻译器已加载，词库', dict.length, '条');
+        dict = await browser.runtime.sendMessage({ type: 'GET_DICTIONARY' }) as DictEntry[];
+        if (!Array.isArray(dict)) throw new Error('Dictionary worker unavailable');
+      } catch {
+        // Preserve newer cached additions and removals even while the worker restarts.
+        const baseUrl = browser.runtime.getURL('/dict.json');
+        const [response, seed, stored] = await Promise.all([
+          fetch(baseUrl), loadPackagedSeed(baseUrl), browser.storage.local.get([CATEGORY_STORAGE_KEY, REMOTE_CACHE_KEY]),
+        ]);
+        const cache = await validateRemoteCache(stored[REMOTE_CACHE_KEY]);
+        const selected = readCategories(stored[CATEGORY_STORAGE_KEY]);
+        dict = filterCategories(mergeDictionaries(await response.json() as DictEntry[], preferSnapshot(seed, cache?.snapshot ?? null)?.entries ?? []), selected);
+      }
+      if (revision !== refreshRevision) return;
+      dictionaryRevision++;
+      hideTooltip();
+      const parents = new Set<Element>();
+      for (const span of document.querySelectorAll('.plainai-term[data-plainai-owned="true"]')) {
+        if (span.parentElement) parents.add(span.parentElement);
+        span.replaceWith(document.createTextNode(span.textContent ?? ''));
+      }
+      for (const parent of parents) parent.normalize();
+      buildIndex(dict);
+      console.log('[PlainAI] 降维翻译器已加载，词库', dict.length, '条');
+    }
+
+    async function init() {
+      // The worker merges the packaged dictionary with its last validated offline cache.
+      try {
+        await refreshDictionary();
       } catch (err) {
         console.error('[PlainAI] 词库加载失败:', err);
         return;
@@ -423,8 +461,15 @@ export default defineContentScript({
         observerTimer = setTimeout(scanAndAnnotate, 500);
       });
       observer.observe(document.body, { childList: true, subtree: true });
+
     }
 
+    // Subscribe before the first await so a fast worker update cannot be missed during page startup.
+    browser.storage.onChanged.addListener((changes, area) => {
+      if (area === 'local' && (REMOTE_CACHE_KEY in changes || CATEGORY_STORAGE_KEY in changes)) {
+        void refreshDictionary().then(scanAndAnnotate).catch(error => console.warn('[PlainAI] 词库刷新失败:', error));
+      }
+    });
     init();
   },
 });

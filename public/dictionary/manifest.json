@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "version": 2,
+  "createdAt": "2026-10-20T05:31:27.107Z",
+  "count": 1169,
+  "domains": [
+    "business",
+    "finance",
+    "internet",
+    "legal",
+    "medical",
+    "science",
+    "technical"
+  ],
+  "snapshot": {
+    "path": "snapshots/2-90d96a9389e206dc58fa216ebb517a2149b4f24d94d8478e7184c5b69d1c1f6a.json",
+    "sha256": "90d96a9389e206dc58fa216ebb517a2149b4f24d94d8478e7184c5b69d1c1f6a",
+    "bytes": 1355775
+  },
+  "deltas": [
+    {
+      "from": 1,
+      "version": 2,
+      "path": "deltas/1-2-faeed33bfe9f6050329801df3e8a4c7cf8b7591df3e5e51ff48a504605723743.json",
+      "sha256": "faeed33bfe9f6050329801df3e8a4c7cf8b7591df3e5e51ff48a504605723743",
+      "bytes": 1355797
+    }
+  ]
+}

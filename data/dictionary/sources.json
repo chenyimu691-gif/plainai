@@ -1,0 +1,830 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "procurement",
+      "repository": "FirmaPanel/procurement-glossary",
+      "path": "data/glossary.json",
+      "adapter": "json",
+      "domain": "business",
+      "fields": {
+        "term": "term",
+        "definition": "definition",
+        "aka": "aliases"
+      },
+      "limit": 25,
+      "ref": "main",
+      "enabled": true,
+      "reviewedCommit": "fcfcadae0140ebe1b94b8cfc32ad6c6cee5d7d96",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/procurement.txt",
+        "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+        "attribution": "FirmaPanel Procurement Glossary by FirmaPanel (https://firmapanel.com), https://github.com/FirmaPanel/procurement-glossary, CC BY 4.0. PlainAI records verbatim copies or Chinese adaptations in each entry quality record; source attribution is retained.",
+        "scopeEvidence": "README.md, License and attribution: \"The dataset and documentation are available under the Creative Commons Attribution 4.0 International License\". data/metadata.json declares CC-BY-4.0. Maintenance scripts have a separate MIT license; no scripts or linked standards are imported. Reviewed at https://github.com/FirmaPanel/procurement-glossary/tree/fcfcadae0140ebe1b94b8cfc32ad6c6cee5d7d96"
+      }
+    },
+    {
+      "id": "techterms",
+      "repository": "techterms/techterms",
+      "path": "src/data/definitions.ts",
+      "adapter": "typescript-literal",
+      "domain": "technical",
+      "fields": {
+        "term": "term",
+        "definition": "explanation"
+      },
+      "limit": 25,
+      "ref": "main",
+      "enabled": true,
+      "reviewedCommit": "0cc26a2b59a3bcde14d177d70f5f42d8cff03309",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/techterms.txt",
+        "sha256": "da7f7bc0bbf6842fac35d3112a65d47ea1d4adc7312d05a568641afca41131a7",
+        "attribution": "Copyright (c) 2025 Tech Terms, https://github.com/techterms/techterms. MIT. PlainAI records verbatim copies or Chinese adaptations in each entry quality record; retain the bundled MIT notice.",
+        "scopeEvidence": "README.md, License: \"This project is licensed under the MIT License\"; Adding New Terms explicitly identifies src/data/definitions.ts as the glossary content. No nested content license found. Import only term/explanation literals, never linked third-party articles or executable TypeScript. Reviewed at https://github.com/techterms/techterms/tree/0cc26a2b59a3bcde14d177d70f5f42d8cff03309"
+      }
+    },
+    {
+      "id": "agent-glossary",
+      "repository": "TheColonyCC/agent-glossary",
+      "path": "index.html",
+      "adapter": "html-articles",
+      "domain": "internet",
+      "fields": {
+        "term": "term",
+        "definition": "definition"
+      },
+      "limit": 25,
+      "ref": "main",
+      "enabled": true,
+      "reviewedCommit": "0b95f3af232bf0e702a8cf6c4173422759ecbc79",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/agent-glossary.txt",
+        "sha256": "ffd9492b70e9cc425ec3ff7cafcacd15d4dd32e8e06aab6c73d6a1f634217c8b",
+        "attribution": "Copyright (c) 2026 The Agent Glossary contributors, https://github.com/TheColonyCC/agent-glossary. MIT. PlainAI records verbatim copies or Chinese adaptations in each entry quality record; retain the bundled MIT notice.",
+        "scopeEvidence": "README.md describes index.html as the whole static glossary and states \"MIT. See LICENSE.\" Each authored glossary entry is an article[id] containing h3 and p. No nested content license found. Exclude navigation, scripts, README inspiration quotation and external linked content. Reviewed at https://github.com/TheColonyCC/agent-glossary/tree/0b95f3af232bf0e702a8cf6c4173422759ecbc79"
+      }
+    },
+    {
+      "id": "traffic-road-infrastructure",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/01_road_infrastructure.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-intersection",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/02_intersection.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-signal-control",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/03_signal_control.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-traffic-flow",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/04_traffic_flow.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-public-transit",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/05_public_transit.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-freeway",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/06_freeway.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-its",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/07_its.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "traffic-safety-parking",
+      "repository": "Luz7818/traffic-terminology",
+      "path": "data/08_safety_parking.jsonl",
+      "adapter": "jsonl",
+      "domain": "science",
+      "fields": {
+        "term": "term_zh",
+        "definition": "definition",
+        "aka": "term_en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "bf213740c6a8210d137acedc555fd0220e6b602b",
+      "ref": "main",
+      "license": {
+        "spdx": "CC-BY-4.0",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/traffic-terminology.txt",
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+        "attribution": "Luz7818, Traffic Terminology Corpus v1.1.0. https://github.com/Luz7818/traffic-terminology. CC-BY-4.0. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License and citation: both corpus data and code are CC BY 4.0; Known limitations item 4 says the corpus is human-authored, not extracted from real texts. data/README.md identifies the eight JSONL files as the primary editable data. Import only term_zh, definition and term_en; linked standards, colloquial substitutions and executable code are excluded. Reviewed at https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b"
+      }
+    },
+    {
+      "id": "quant-derivatives",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/derivatives.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "derivatives"
+    },
+    {
+      "id": "quant-macro",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/macro.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "macro"
+    },
+    {
+      "id": "quant-markets",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/markets.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "markets"
+    },
+    {
+      "id": "quant-pricing",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/pricing.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "pricing"
+    },
+    {
+      "id": "quant-probability",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/probability.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "probability"
+    },
+    {
+      "id": "quant-statistics",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/statistics.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "statistics"
+    },
+    {
+      "id": "quant-strategies",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/strategies.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "strategies"
+    },
+    {
+      "id": "quant-valuation",
+      "repository": "Tomortec/better-quant-wiki",
+      "path": "src/content/glossary/valuation.ts",
+      "adapter": "typescript-literal",
+      "domain": "finance",
+      "fields": {
+        "term": "zh",
+        "definition": "definition",
+        "aka": [
+          "en",
+          "abbr"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5611485adb669828fcaf704aeb2ce9c8a86886d4",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/better-quant-wiki.txt",
+        "sha256": "5c3aaa4e27ba905a388e3d20fbc11aba4e8b2f7361a56a800272e28a56d2e42a",
+        "attribution": "Copyright (c) 2026 Tomortec and Better Quant Wiki contributors. https://github.com/Tomortec/better-quant-wiki. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, License: MIT; \"Prose in this repo is original.\" The README says the Quant Wiki topic list was retained but definitions were rewritten, and identifies src/content/glossary as the bilingual glossary. Import only the named exported literal array, zh/definition/en/abbr; formulas, third-party links, exercises and executable code are excluded. Reviewed at https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4"
+      },
+      "arrayName": "valuation"
+    },
+    {
+      "id": "vibe-coding-zh",
+      "repository": "edwardmqg-dotcom/vibe-coding-glossary-zh",
+      "path": "index.html",
+      "adapter": "html-literal",
+      "domain": "technical",
+      "fields": {
+        "term": "name",
+        "definition": "plain",
+        "aka": "english"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "ce82ef4e42da4b261b2b429af4bb6124bec01db2",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/vibe-coding-zh.txt",
+        "sha256": "b29bc4049c9421314940409cc5193b8b09035796a6790ed2753958a24c1d73f5",
+        "attribution": "Copyright (c) 2026 EddieM. https://github.com/edwardmqg-dotcom/vibe-coding-glossary-zh. MIT. PlainAI copies Chinese definitions verbatim and normalizes term/alias fields; original notices are retained.",
+        "scopeEvidence": "README, Author and license: \"代码和原创文字以 MIT License 发布\" by EddieM; project layout identifies index.html as the complete page, data and UI. Import only static name/plain/english literals in the inline const terms array; scripts are parsed but never executed. Navigation, examples and external further-reading content are excluded. Reviewed at https://github.com/edwardmqg-dotcom/vibe-coding-glossary-zh/tree/ce82ef4e42da4b261b2b429af4bb6124bec01db2"
+      },
+      "arrayName": "terms"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-basic",
+      "path": "js/terms-basic.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-1",
+      "path": "js/terms-more-1.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-2",
+      "path": "js/terms-more-2.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-3",
+      "path": "js/terms-more-3.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-4",
+      "path": "js/terms-more-4.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-5",
+      "path": "js/terms-more-5.js",
+      "domain": "internet"
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-business",
+      "path": "js/terms-more-6.js",
+      "domain": "business",
+      "where": {
+        "field": "id",
+        "values": [
+          "persona",
+          "userstory",
+          "journeymap",
+          "mvp",
+          "tracking",
+          "funnel",
+          "abtest",
+          "retention",
+          "heatmap",
+          "usabilitytest"
+        ]
+      }
+    },
+    {
+      "repository": "guo25476688-cmd/web-interaction-glossary",
+      "adapter": "javascript-literal",
+      "arrayName": "TERMS",
+      "fields": {
+        "term": "zh",
+        "definition": "plain",
+        "aka": "en"
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "5d50a7f8af2b30cbd5a03c506be703a41e7a8b21",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/web-interaction.txt",
+        "sha256": "949c21ab505d0d605c264fd0d45036dd3b6781adb090b757bda0e872dd9b5571",
+        "attribution": "Copyright (c) 2026 guo25476688-cmd. https://github.com/guo25476688-cmd/web-interaction-glossary. MIT. PlainAI copies the original Chinese plain field verbatim and normalizes terms/English aliases; bundled MIT notice retained.",
+        "scopeEvidence": "README describes an interactive dictionary for novice product managers and licenses the project as MIT; How to add a term identifies zh, en and plain as the authored glossary fields in js/terms-basic.js and js/terms-more-*.js. Import only static records from TERMS and direct TERMS.push calls. Exclude demo HTML, prompts, spec, third-party example sites and upstream loose aliases. Reviewed at https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21"
+      },
+      "id": "web-interaction-internet",
+      "path": "js/terms-more-6.js",
+      "domain": "internet",
+      "where": {
+        "field": "id",
+        "values": [
+          "wireframe",
+          "fidelity",
+          "prototype",
+          "userflow",
+          "ia",
+          "designsystem",
+          "breakpoint",
+          "grid",
+          "hierarchy",
+          "whitespace",
+          "states",
+          "affordance",
+          "a11y",
+          "fold",
+          "touchtarget",
+          "fitts",
+          "hick",
+          "progressive",
+          "defaults",
+          "edgecase",
+          "grayrelease",
+          "handoff",
+          "api"
+        ]
+      }
+    },
+    {
+      "id": "medical-ebm",
+      "repository": "bbylw/Medicine",
+      "path": "index.html",
+      "adapter": "html-headings",
+      "domain": "medical",
+      "fields": {
+        "term": "term",
+        "definition": "definition"
+      },
+      "where": {
+        "field": "term",
+        "values": [
+          "证据为本",
+          "医患共决策",
+          "最佳研究证据",
+          "临床专业知识",
+          "患者价值观",
+          "确认偏差",
+          "可得性偏差",
+          "锚定效应",
+          "安慰剂效应"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "aa3bf341aa436c120584e98a71fba75bcbe62d9e",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/medical-ebm.txt",
+        "sha256": "9a3dc92b15de3a559c18382bf30b5fcaa2c12ceaebd1e48e733d90ea9f9c8891",
+        "attribution": "Copyright (c) 2026 free; bbylw/Medicine. https://github.com/bbylw/Medicine. MIT. PlainAI copies the approved Chinese definition text; original notice retained.",
+        "scopeEvidence": "README identifies index.html as a public EBM education page; its root MIT license covers the authored associated documentation, and no separate content exception was found. Extract only the nine allowlisted h3/h4 headings with their immediately adjacent original p text. Do not copy citations, linked reference works, medical advice, drug/dose claims, treatment comparisons, AI chat examples or unrelated headings. References inform the source context and do not grant rights to the linked third-party works. Reviewed at https://github.com/bbylw/Medicine/tree/aa3bf341aa436c120584e98a71fba75bcbe62d9e"
+      },
+      "authority": "bbylw/Medicine is a community EBM education site. README references Cochrane Library, WHO Guidelines, GRADE Working Group and Guyatt et al., BMJ 2008 (doi:10.1136/bmj.39489.470347.AD). Only nine introductory concepts/cognitive biases are admitted. This is not WHO-authored content; no physician authorship or physician review evidence was found."
+    },
+    {
+      "id": "plain-speak-legal",
+      "repository": "chengwudi1/plain-speak",
+      "path": "skills/plain-speak/references/jargon-legal.md",
+      "adapter": "markdown-table",
+      "domain": "legal",
+      "fields": {
+        "term": "term",
+        "definition": "definition"
+      },
+      "where": {
+        "field": "term",
+        "values": [
+          "连带责任"
+        ]
+      },
+      "limit": 25,
+      "enabled": true,
+      "reviewedCommit": "e3598f3e3caa68c0a1440aad0ac9d302246d522d",
+      "ref": "main",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "textPath": "data/dictionary/licenses/plain-speak-legal.txt",
+        "sha256": "cd20957b7598a683c000b3529f4f0cdbe7748f6b1dd76c83ce05bc99f65ec080",
+        "attribution": "Copyright (c) 2026 plain-speak contributors. https://github.com/chengwudi1/plain-speak. MIT. PlainAI copies the approved Chinese definition text; original notice retained.",
+        "scopeEvidence": "README calls the five Chinese jargon-to-plain reference files core project assets and publishes the project as MIT; CONTRIBUTING explains contributions to these authored tables. jargon-legal.md explicitly says Chinese legal context. Extract only the term and definition columns for the allowlisted conceptual entry, not common pitfalls or guidance. Exclude limitation periods, deposit claims, employment restrictions and overgeneralized rights-waiver statements. asOf records the fixed source commit date (2026-09-06), not certification that current law was reviewed. Reviewed at https://github.com/chengwudi1/plain-speak/tree/e3598f3e3caa68c0a1440aad0ac9d302246d522d"
+      },
+      "context": {
+        "jurisdiction": "中国",
+        "asOf": "2026-09-06"
+      }
+    }
+  ]
+}

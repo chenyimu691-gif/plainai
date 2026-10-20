@@ -13,9 +13,16 @@
     "zip": "npm run build && wxt zip",
     "zip:firefox": "npm run build:firefox && wxt zip -b firefox",
     "compile": "tsc --noEmit",
-    "postinstall": "wxt prepare"
+    "postinstall": "wxt prepare",
+    "test": "node --experimental-strip-types --test --test-isolation=none tests/*.test.ts",
+    "dictionary:discover": "node --experimental-strip-types scripts/dictionary/cli.ts discover",
+    "dictionary:probe": "node --experimental-strip-types scripts/dictionary/cli.ts probe",
+    "dictionary:update": "node --experimental-strip-types scripts/dictionary/cli.ts update",
+    "dictionary:verify": "node --experimental-strip-types scripts/dictionary/cli.ts verify",
+    "dictionary:build": "node --experimental-strip-types scripts/dictionary/cli.ts build"
   },
   "dependencies": {
+    "@noble/hashes": "2.4.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
@@ -23,8 +30,12 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@wxt-dev/module-react": "^1.1.5",
+    "js-yaml": "^4.3.2",
     "typescript": "^5.9.3",
     "web-ext": "^10.5.0",
     "wxt": "^0.20.27"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   }
 }
