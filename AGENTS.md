@@ -36,7 +36,7 @@ lib/
 scripts/
   build_dict.py      生成 terms-embodiedterms.ts（需根目录 embodiedterms_zh.json）
   export-dict.cjs    把 TS 词库导出为 public/dict.json
-  verify.cjs         验证脚本（11 项检查）
+  verify.cjs         验证脚本（15 项检查）
 public/
   dict.json          词库构建产物（扩展运行时 fetch 加载）
 ```
@@ -146,7 +146,7 @@ public/dict.json（产物）
 ```bash
 npm run compile          # TypeScript 类型检查（必须 0 错误）
 npm run build            # 构建
-node scripts/verify.cjs  # 11 项检查
+node scripts/verify.cjs  # 15 项检查
 ```
 
 ## 已知约束与坑
@@ -160,7 +160,7 @@ node scripts/verify.cjs  # 11 项检查
 ## 修改后请遵守
 
 - 跑 `npm run compile` 确认无类型错误
-- 跑 `node scripts/verify.cjs` 确认 11 项通过
+- 跑 `node scripts/verify.cjs` 确认 15 项通过
 - 涉及词库数据的改动，确认没有违反 CC BY-NC 的署名与商用限制
 
 ## 每周远程词库更新
@@ -170,8 +170,9 @@ node scripts/verify.cjs  # 11 项检查
 - 不得把程序检查描述成语义准确性保证，或伪造模型/人工审核记录；`quality.method=source-copy` 的 `plain` 必须与原始定义完全一致。
 - 行业多选保存在本机并即时应用于内置、远程和回退路径；暂无词条的分类必须如实显示，不得宣传成已有覆盖。
 - `lib/dictionary/remote-schema.ts` 和 `remote-sync.ts` 是构建脚本与扩展共享的协议/同步逻辑；内置词条及别名优先，远程失败保留可用缓存。
+- HTTP 页面的内容脚本可能没有 `crypto.subtle`；SHA-256 此时用固定版本的 `@noble/hashes` 回退，不能跳过缓存校验。它的完整 MIT 声明在随包 `THIRD-PARTY-NOTICES.txt`。
 - 新来源和许可证哈希变动必须单独审阅；发现报告不代表来源已批准。原有 CC BY-NC 条件继续适用。
-- 构建通过 `verifyRelease` 验证后，将当前已批准快照作为 `dictionary-seed.json` 随扩展打包（数据文件按需读取，不能 import 进脚本）。原有 `public/dict.json` 仍为 3,093 条；本次 v2 额外 1,169 条，随包总数 4,262 条。查词选择随包快照与有效在线缓存中较新的整份数据；较新快照删除的词条不能从旧 seed 补回。页面的后台不可用回退也要加载 seed 并遵守行业多选。
+- 构建通过 `verifyRelease` 验证后，将当前已批准快照作为 `dictionary-seed.json` 随扩展打包（数据文件按需读取，不能 import 进脚本）。原有 `public/dict.json` 仍为 3,093 条；本次 v2 额外 1,169 条，随包总数 4,262 条。查词选择随包快照与有效在线缓存中较新的整份数据；较新快照删除的词条不能从旧 seed 补回。页面的后台不可用回退也要使用同样的缓存校验与快照选择，并遵守行业多选。
 - 来源解析仅处理已批准的 JSON/JSONL、具名静态 TS/JS 数组及直接 push 对象、限定 HTML 正文和 Markdown 表格；下载的代码从不执行。敏感领域和跨分类子集使用来源 `where` 白名单，不能为凑数量降低检查。
 - 改动更新功能还须运行 `npm test`、`npm run dictionary:verify` 和 `npm run dictionary:build`。`scripts/verify.cjs` 现有 15 项检查，包含完整许可声明、seed 与当前发布完全一致、页面回退权限以及在线发布历史不进入扩展包的验证。
 - 配置、发布和自动合并边界见 [docs/dictionary-updates.md](docs/dictionary-updates.md)。

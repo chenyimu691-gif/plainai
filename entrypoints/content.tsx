@@ -1,6 +1,7 @@
 import type { DictEntry } from '../lib/dictionary/types';
 import { mergeDictionaries } from '../lib/dictionary/remote-schema';
-import { loadPackagedSeed } from '../lib/dictionary/packaged-seed';
+import { loadPackagedSeed, preferSnapshot } from '../lib/dictionary/packaged-seed';
+import { REMOTE_CACHE_KEY, validateRemoteCache } from '../lib/dictionary/remote-sync';
 import type { RemoteEntry } from '../lib/dictionary/remote-schema';
 import { CATEGORY_STORAGE_KEY, readCategories, filterCategories } from '../lib/dictionary/categories';
 import { getAIConfig, isLocalFirst, explainWithAI } from '../lib/utils/ai';
@@ -415,11 +416,14 @@ export default defineContentScript({
         dict = await browser.runtime.sendMessage({ type: 'GET_DICTIONARY' }) as DictEntry[];
         if (!Array.isArray(dict)) throw new Error('Dictionary worker unavailable');
       } catch {
-        // A restarting worker must not prevent access to the packaged dictionary.
+        // Preserve newer cached additions and removals even while the worker restarts.
         const baseUrl = browser.runtime.getURL('/dict.json');
-        const [response, seed] = await Promise.all([fetch(baseUrl), loadPackagedSeed(baseUrl)]);
-        const selected = readCategories((await browser.storage.local.get(CATEGORY_STORAGE_KEY))[CATEGORY_STORAGE_KEY]);
-        dict = filterCategories(mergeDictionaries(await response.json() as DictEntry[], seed?.entries ?? []), selected);
+        const [response, seed, stored] = await Promise.all([
+          fetch(baseUrl), loadPackagedSeed(baseUrl), browser.storage.local.get([CATEGORY_STORAGE_KEY, REMOTE_CACHE_KEY]),
+        ]);
+        const cache = await validateRemoteCache(stored[REMOTE_CACHE_KEY]);
+        const selected = readCategories(stored[CATEGORY_STORAGE_KEY]);
+        dict = filterCategories(mergeDictionaries(await response.json() as DictEntry[], preferSnapshot(seed, cache?.snapshot ?? null)?.entries ?? []), selected);
       }
       if (revision !== refreshRevision) return;
       dictionaryRevision++;
@@ -462,7 +466,7 @@ export default defineContentScript({
 
     // Subscribe before the first await so a fast worker update cannot be missed during page startup.
     browser.storage.onChanged.addListener((changes, area) => {
-      if (area === 'local' && ('plainai_remote_dictionary_v1' in changes || CATEGORY_STORAGE_KEY in changes)) {
+      if (area === 'local' && (REMOTE_CACHE_KEY in changes || CATEGORY_STORAGE_KEY in changes)) {
         void refreshDictionary().then(scanAndAnnotate).catch(error => console.warn('[PlainAI] 词库刷新失败:', error));
       }
     });

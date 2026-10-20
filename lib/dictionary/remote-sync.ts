@@ -18,6 +18,20 @@ interface Dependencies {
 const MANIFEST_BYTES = 64 * 1024;
 const TIMEOUT_MS = 15_000;
 
+/** Worker and page fallback apply identical integrity checks to locally stored data. */
+export async function validateRemoteCache(candidate: unknown): Promise<RemoteCache | null> {
+  try {
+    if (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) return null;
+    const value = candidate as RemoteCache;
+    if (value.schemaVersion !== 1 || typeof value.syncedAt !== 'string'
+      || !Number.isFinite(Date.parse(value.syncedAt)) || typeof value.sha256 !== 'string') return null;
+    validateSnapshot(value.snapshot);
+    const encoded = canonicalJson(value.snapshot);
+    if (new TextEncoder().encode(encoded).byteLength > MAX_PAYLOAD_BYTES || await sha256(encoded) !== value.sha256) return null;
+    return value;
+  } catch { return null; }
+}
+
 /** Only this trusted data origin may be fetched. No user text or browsing URL is sent. */
 export function createRemoteSync(dependencies: Dependencies) {
   const now = dependencies.now ?? (() => new Date());
@@ -25,13 +39,7 @@ export function createRemoteSync(dependencies: Dependencies) {
 
   async function readCache(): Promise<RemoteCache | null> {
     try {
-      const value = await dependencies.read(REMOTE_CACHE_KEY) as RemoteCache | undefined;
-      if (!value || value.schemaVersion !== 1 || typeof value.syncedAt !== 'string'
-        || !Number.isFinite(Date.parse(value.syncedAt)) || typeof value.sha256 !== 'string') return null;
-      validateSnapshot(value.snapshot);
-      const encoded = canonicalJson(value.snapshot);
-      if (new TextEncoder().encode(encoded).byteLength > MAX_PAYLOAD_BYTES || await sha256(encoded) !== value.sha256) return null;
-      return value;
+      return await validateRemoteCache(await dependencies.read(REMOTE_CACHE_KEY));
     } catch { return null; }
   }
 

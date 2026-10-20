@@ -1,3 +1,4 @@
+import { sha256 as portableSha256 } from '@noble/hashes/sha2.js';
 import type { DictEntry } from './types.ts';
 
 export const DOMAINS = ['technical', 'business', 'finance', 'legal', 'medical', 'science', 'internet', 'education'] as const;
@@ -101,8 +102,12 @@ export function canonicalJson(value: unknown): string {
 }
 
 export async function sha256(value: string): Promise<string> {
-  const hash = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(value));
-  return [...new Uint8Array(hash)].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  const bytes = new TextEncoder().encode(value);
+  // Content scripts on HTTP pages may not expose the secure-context WebCrypto API.
+  const hash = globalThis.crypto?.subtle
+    ? new Uint8Array(await globalThis.crypto.subtle.digest('SHA-256', bytes))
+    : portableSha256(bytes);
+  return [...hash].map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
 export function validateRemoteEntry(value: unknown): asserts value is RemoteEntry {
