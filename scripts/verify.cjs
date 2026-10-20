@@ -97,6 +97,10 @@ if (fs.existsSync(outDir)) {
   check('dict.json 已复制到产物', fs.existsSync(outDict));
   check('在线词库完整许可声明已随扩展打包', fs.existsSync(path.join(outDir, 'dictionary-NOTICES.txt')));
   check('历史在线词库未重复打包', !fs.existsSync(path.join(outDir, 'dictionary')));
+  const seedPath = path.join(outDir, 'dictionary-seed.json');
+  const release = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'dictionary', 'manifest.json'), 'utf8'));
+  check('当前行业词库随扩展离线打包', fs.existsSync(seedPath)
+    && fs.readFileSync(seedPath, 'utf8') === fs.readFileSync(path.join(ROOT, 'public', 'dictionary', release.snapshot.path), 'utf8'), `${release.count} 条`);
 
   const manifest = JSON.parse(fs.readFileSync(path.join(outDir, 'manifest.json'), 'utf8'));
   const war = manifest.web_accessible_resources || [];
@@ -104,6 +108,7 @@ if (fs.existsSync(outDir)) {
     'web_accessible_resources 已配置',
     war.some((r) => (r.resources || []).includes('dict.json'))
   );
+  check('离线行业词库允许页面回退加载', war.some((r) => (r.resources || []).includes('dictionary-seed.json')));
 } else {
   console.log('  （未构建，跳过。运行 npm run build 后重试）');
 }

@@ -171,5 +171,7 @@ node scripts/verify.cjs  # 11 项检查
 - 行业多选保存在本机并即时应用于内置、远程和回退路径；暂无词条的分类必须如实显示，不得宣传成已有覆盖。
 - `lib/dictionary/remote-schema.ts` 和 `remote-sync.ts` 是构建脚本与扩展共享的协议/同步逻辑；内置词条及别名优先，远程失败保留可用缓存。
 - 新来源和许可证哈希变动必须单独审阅；发现报告不代表来源已批准。原有 CC BY-NC 条件继续适用。
-- 改动更新功能还须运行 `npm test`、`npm run dictionary:verify` 和 `npm run dictionary:build`。`scripts/verify.cjs` 现有 13 项检查，包含完整许可声明和在线发布历史不进入扩展包的验证。
+- 构建通过 `verifyRelease` 验证后，将当前已批准快照作为 `dictionary-seed.json` 随扩展打包（数据文件按需读取，不能 import 进脚本）。原有 `public/dict.json` 仍为 3,093 条；本次 v2 额外 1,169 条，随包总数 4,262 条。查词选择随包快照与有效在线缓存中较新的整份数据；较新快照删除的词条不能从旧 seed 补回。页面的后台不可用回退也要加载 seed 并遵守行业多选。
+- 来源解析仅处理已批准的 JSON/JSONL、具名静态 TS/JS 数组及直接 push 对象、限定 HTML 正文和 Markdown 表格；下载的代码从不执行。敏感领域和跨分类子集使用来源 `where` 白名单，不能为凑数量降低检查。
+- 改动更新功能还须运行 `npm test`、`npm run dictionary:verify` 和 `npm run dictionary:build`。`scripts/verify.cjs` 现有 15 项检查，包含完整许可声明、seed 与当前发布完全一致、页面回退权限以及在线发布历史不进入扩展包的验证。
 - 配置、发布和自动合并边界见 [docs/dictionary-updates.md](docs/dictionary-updates.md)。

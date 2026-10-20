@@ -22,7 +22,7 @@ async function until(predicate: () => boolean) {
     await delay(2);
   }
 }
-async function worker(blockAlarm = false) {
+async function worker(blockAlarm = false, seed?: unknown) {
   const snapshot = { version: 7, entries: [fixture] };
   const storage: Record<string, any> = { [REMOTE_CACHE_KEY]: { schemaVersion: 1, snapshot, sha256: await sha256(canonicalJson(snapshot)), syncedAt: new Date().toISOString() },
     [REMOTE_STATUS_KEY]: { checkedAt: new Date().toISOString() } };
@@ -35,7 +35,8 @@ async function worker(blockAlarm = false) {
     runtime: { getURL: (path: string) => `chrome-extension://test${path}`, onMessage: events.message, onStartup: events.startup, onInstalled: events.installed } };
   const context: any = { defineBackground: (fn: unknown) => fn, browser, crypto: globalThis.crypto, TextEncoder, TextDecoder, URL, Error,
     AbortController, setTimeout, clearTimeout, console,
-    fetch: async (url: string) => { if (url.startsWith('chrome-extension:')) return new Response(JSON.stringify([{ term: '自建术语', category: 'general', plain: '内置解释' }]));
+    fetch: async (url: string) => { if (url.endsWith('/dictionary-seed.json')) return Response.json(seed ?? []);
+      if (url.startsWith('chrome-extension:')) return new Response(JSON.stringify([{ term: '自建术语', category: 'general', plain: '内置解释' }]));
       requests.push(url); throw new Error('offline'); } };
   runInNewContext(compiled.outputFiles[0].text, context); context.BackgroundModule.default();
   return { storage, events, created, requests, release, resetAlarm: () => { currentAlarm = undefined; }, message: (type: string) => events.message.listeners[0]({ type }) };
@@ -72,6 +73,17 @@ test('worker applies multiple category choices to offline lookup and reports ava
   assert.equal((await h.message('GET_DICTIONARY')).length, 2);
   h.storage.plainai_dictionary_categories = [];
   assert.equal((await h.message('GET_DICTIONARY')).length, 0);
+});
+
+test('worker provides packaged industry terms offline and lets a newer cache remove them', async () => {
+  const seed = { version: 8, entries: [{ ...fixture, id: 'd'.repeat(64), term: '交通量', category: 'science',
+    plain: '单位时间内通过道路某一断面的车辆数量，用来描述交通流量。' }] };
+  const h = await worker(false, seed);
+  h.storage.plainai_dictionary_categories = ['science', 'business'];
+  assert.deepEqual(Array.from(await h.message('GET_DICTIONARY'), (entry: any) => entry.term), ['交通量']);
+  const snapshot = { version: 9, entries: [] };
+  h.storage[REMOTE_CACHE_KEY] = { schemaVersion: 1, snapshot, sha256: await sha256(canonicalJson(snapshot)), syncedAt: new Date().toISOString() };
+  assert.equal((await h.message('GET_DICTIONARY')).length, 0, 'online removals supersede the packaged baseline');
 });
 
 test('daily alarm respects the check interval and failed network sync retains old snapshot', async () => {

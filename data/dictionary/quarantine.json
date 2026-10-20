@@ -1,3 +1,3379 @@
 {
-  "items": []
+  "items": [
+    {
+      "term": "ABC Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Acceptance Quality Limit",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Actual Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Advance Payment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Advance Shipping Notice",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Air Waybill",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Anti-Dumping Duty",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Anticipation Inventory",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Approved Supplier List",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Award",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Award Criteria",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Award Notice",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Backorder",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bank Guarantee",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Batch Production",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Beneficial Ownership",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Best and Final Offer",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Best-Cost Country Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bid",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bid Bond",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bid Comparison",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bid Evaluation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bidder",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bill of Lading",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bill of Materials",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Blanket Purchase Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bonded Warehouse",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Buffer Stock",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Business Continuity Plan",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cancellation Clause",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Capacity Utilization",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Carrier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cash in Advance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Category Management",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Certificate of Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Certificate of Conformity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Certificate of Origin",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Chain of Custody",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Change Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Clean-Sheet Costing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Commercial Invoice",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Commercial Offer",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Competitive Bidding",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Competitive Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Conflict Minerals",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Consolidation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract Amendment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract Award",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract Leakage",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract Manufacturing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contract Renewal",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Contracting Process",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Corrective and Preventive Action",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Avoidance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Breakdown",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Breakdown Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Driver",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Reduction",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cost Savings",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Countervailing Duty",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Country of Origin",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Critical Defect",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cross-Docking",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cubic Meter",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Currency Adjustment Factor",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Customs Broker",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Customs Clearance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Customs Declaration",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Customs Duty",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cycle Counting",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cycle Stock",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Dead Stock",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Deconsolidation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Defect Classification",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Demand Aggregation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Demurrage",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Detention",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Die",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Direct Award",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Direct Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Dispatch",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Dock-to-Stock Time",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Documentary Collection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Documents against Acceptance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Documents against Payment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Drayage",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Dual Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "During Production Inspection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Duty Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Dynamic Discounting",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "E-Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "E-Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Early Payment Discount",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Economic Order Quantity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Engineer to Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Enquiry Period",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Escrow",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Estimated Time of Arrival",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Estimated Time of Departure",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Evaluation Criteria",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Export",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Export Declaration",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Export License",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Exporter of Record",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "First Expired, First Out",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "First In, First Out",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Final Random Inspection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "First Article Inspection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Force Majeure",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Forty-Foot Equivalent Unit",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Fourth-Party Logistics",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Framework Agreement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Free Trade Agreement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Freight",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Freight Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Freight Forwarder",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Friendshoring",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Fulfillment Center",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Full Container Load",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Goods Receipt",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Goods Receipt Note",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Green Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Guided Buying",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Handling Fee",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Harmonized System Code",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Human Rights Due Diligence",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Implementation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Import",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Import License",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Importer of Record",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Incoming Inspection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Incoterms Rules",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Indirect Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Inspection Lot",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Inventory",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Inventory Turnover",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Invitation to Tender",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Invoice Matching",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Job Production",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Landed Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Last-Mile Delivery",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Lead Time",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Less than Container Load",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Letter of Credit",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Last In, First Out",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Limited Tendering",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Logistics",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Low-Cost Country Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Major Defect",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Make-or-Buy Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Make to Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Make to Stock",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Manufacturing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Mass Production",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Master Service Agreement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Maverick Spend",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Minimum Order Quantity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Minimum Order Value",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Minor Defect",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Mold",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Multi-Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Multi-Tier Supply Chain",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Nearshoring",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Net 30",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Nonconformance Report",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Open Account",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Open Procedure",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Open Purchase Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Order Confirmation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Original Design Manufacturer",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Original Equipment Manufacturer",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Packaging Specification",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Packing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Packing List",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Palletization",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Payment Milestone",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Payment Terms",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Picking",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Pilot Run",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Pre-Shipment Inspection",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Preferred Supplier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Price Break",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Primary Packaging",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Private Label",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Pro Forma Invoice",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procure-to-Pay",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Analytics",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Compliance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Cycle",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Maturity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Plan",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Policy",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Process",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procurement Strategy",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Procuring Entity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Production Capacity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Production Lead Time",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Proof of Delivery",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Prototype",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Public Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchase Order",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchase Order Acknowledgment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchase Order Change",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchase Price Variance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchase Requisition",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Purchasing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Putaway",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Quality Assurance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Quality Control",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Quality Management System",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Quotation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Quote Validity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Receiving",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Reorder Point",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Reorder Quantity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Request for Bid",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Request for Information",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Request for Proposal",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Request for Quotation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Requisition",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Requisition-to-Pay",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Reshoring",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Responsible Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Responsible Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Retention",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Returnable Packaging",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Reverse Auction",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Review Body",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Root Cause Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Rules of Origin",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Safety Stock",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sampling Plan",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Scope 3 Emissions",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sealed Bid",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Second-Tier Supplier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Secondary Packaging",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Selective Procedure",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Service-Level Agreement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Shipping Mark",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Should-Cost Model",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Single Point of Failure",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Single Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sole Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Source-to-Pay",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sourcing Event",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Spend Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Spend Under Management",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Standard Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Statement of Work",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Stockout",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Storage Location",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Strategic Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sub-Tier Supplier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Audit",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Code of Conduct",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Consolidation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Corrective Action Request",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Development",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Discovery",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Diversity",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Due Diligence",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Evaluation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Localization",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Onboarding",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Performance Management",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Qualification",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Quality Agreement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Relationship Management",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Risk",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Risk Assessment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Scorecard",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supplier Segmentation",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Base Rationalization",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Chain Resilience",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Chain Traceability",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Disruption",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Market Analysis",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Risk",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Supply Risk Assessment",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Surcharge",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Sustainable Procurement",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tactical Sourcing",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tail Spend",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Target Price",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tariff",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Technical Specification",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tender",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tender Notice",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tender Period",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tenderer",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Terms and Conditions",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tertiary Packaging",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Third-Party Logistics",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Third-Party Risk",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Three-Way Match",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tier-1 Supplier",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tooling",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Total Cost of Ownership",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Traceability",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Trade Compliance",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Trade Sanction",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Transit Time",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Twenty-Foot Equivalent Unit",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Two-Way Match",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Unit Cost",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Unit Load",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Unit Price",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Vendor",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Warehouse Management System",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "White Label",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Work in Progress",
+      "sourceId": "procurement",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "API",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "REST",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Git",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Docker",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Microservices",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Monolithic Architecture",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "CI/CD",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "OOP",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "SOLID Principles",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "DRY",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "KISS",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "YAGNI",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Technical Debt",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Refactoring",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Unit Testing",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Code Review",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MVC",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "CSS",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Open Source",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "npm",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Frontend",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Backend",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Horizontal Scaling",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Vertical Scaling",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Two-Factor Authentication (2FA)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Algorithm",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "JavaScript",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Rust",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Substack",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bluesky",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "VPN (Virtual Private Network)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "GitHub",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "GitLab",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Domain",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Subdomain",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Indie Maker",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MRR (Monthly Recurring Revenue)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "ARR (Annual Recurring Revenue)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MVP (Minimum Viable Product)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "SaaS (Software as a Service)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "No-Code",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Markdown",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MCP Server",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "LLM (Large Language Model)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "LLM Context",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "LLM Prompt",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "AI Agent",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Database",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Relational Database",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "SQL",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "ICP (Ideal Customer Profile)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "WebSockets",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Hacktoberfest",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "AI Slop",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "UTM (Urchin Tracking Module)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "VPS (Virtual Private Server)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "DNS (Domain Name System)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "CDN (Content Delivery Network)",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Cloudflare",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Class",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Object",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Python",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Developer Relations",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Community Manager",
+      "sourceId": "techterms",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Agent",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Agentic",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "AGI",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Alignment",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Attention",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Autoregressive",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Benchmark",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Bias",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Chain of Thought (CoT)",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Claude",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Constitutional AI",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Context Window",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "CoT",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Diffusion",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Distillation",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Embedding",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Emergent capability",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Eval",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Few-shot",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Fine-tuning",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Foundation Model",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Function Calling",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "GPT",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Grounding",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Guardrail",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Hallucination",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Harness",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "HITL (Human in the Loop)",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Inference",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Instruction Tuning",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Jailbreak",
+      "sourceId": "agent-glossary",
+      "reason": "Unsafe source candidate: instructions-or-markup"
+    },
+    {
+      "term": "KV Cache",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Latency",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "LLM",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "LoRA",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "MCP (Model Context Protocol)",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "MoE (Mixture of Experts)",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Multimodal",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "N-shot",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Open weights",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Orchestration",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Parameter",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Pre-training",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Prompt",
+      "sourceId": "agent-glossary",
+      "reason": "Unsafe source candidate: instructions-or-markup"
+    },
+    {
+      "term": "Prompt injection",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Quantization",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "RAG",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "ReAct",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Reasoning model",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "RLHF",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "SFT",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Subagent",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "System prompt",
+      "sourceId": "agent-glossary",
+      "reason": "Unsafe source candidate: instructions-or-markup"
+    },
+    {
+      "term": "Temperature",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Token",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Tool",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Transformer",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Underfit / Overfit",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "Vector database",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "VLM",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Weights",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Workflow",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: plain has invalid text"
+    },
+    {
+      "term": "X-risk",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "Zero-shot",
+      "sourceId": "agent-glossary",
+      "reason": "Invalid dictionary: explanation must contain Chinese"
+    },
+    {
+      "term": "机动车道",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "单行道",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "对向车道",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "绕城公路",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "涵洞",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "干线道路",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "施工围挡",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "道路改扩建",
+      "sourceId": "traffic-road-infrastructure",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "十字形交叉口",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "T形交叉口",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "中心岛",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "直行车道",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "掉头车道",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "掉头开口",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "分流",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "指示标志",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "旅游区标志",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "禁止驶入",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "解除限速标志",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "白色虚线",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车道边缘线",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "悬臂标志",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "柱式标志",
+      "sourceId": "traffic-intersection",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "掉头信号灯",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "非机动车信号灯",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "相序",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "信号周期",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "绿灯时间",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "对向放行",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "信号灯杆",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "LED信号灯",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "信号灯面",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "待转提示屏",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "高峰方案",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "机动车倒计时显示屏",
+      "sourceId": "traffic-signal-control",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "交通量",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "平峰",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "日交通量",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "设计交通量",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "地点速度",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车头时距",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车头间距",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "基本通行能力",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "可能通行能力",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "过饱和",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "延误",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "排队长度",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "行程时间",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "基本畅通",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "拥堵传播",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "诱增交通量",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "方式划分",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "出行分布",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "系统最优",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "路网容量",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "换道模型",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "交通组成",
+      "sourceId": "traffic-traffic-flow",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "公交线路",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "公交线网",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "公交停靠站",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "中途站",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "候车亭",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "发车间隔",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "发车频率",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "班次",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "首班车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "末班车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "运营时间",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "夜班公交",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "高峰加车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "客流量",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "安检",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "轻轨",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "城际铁路",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "磁浮交通",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "换乘站",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "站台",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "闸机",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "顺风车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "共享单车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "共享电单车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "慢行交通",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "平均乘距",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "通勤班车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "机场巴士",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "出租汽车候客点",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "换乘优惠",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "公交专用道违规占用",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "摆渡车",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "准点率",
+      "sourceId": "traffic-public-transit",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "匝道收费站",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "人工收费车道",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "通行费",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "栏杆机",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "免费通行政策",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "入口匝道",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "出口匝道",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "枢纽互通",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "百米桩",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "桩号",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "限制速度",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "可变限速标志",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车距确认标志",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "紧急电话",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "断交施工",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "交通广播",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "高速巡检",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "充电站",
+      "sourceId": "traffic-freeway",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "违法抓拍",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "超速抓拍",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车牌识别",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "人脸识别卡口",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "GPS轨迹",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "断面流量监测",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "实时路况",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "躲避拥堵",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "预计到达时间",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "语音播报",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "电子地图",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "智能网联汽车",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车道保持辅助",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "自动紧急制动",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "碰撞预警",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "自动泊车",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车诱导屏",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "泊位余位显示",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "公交优先系统",
+      "sourceId": "traffic-its",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "死亡事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "追尾事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "多方事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "坠落事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "行人碰撞事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "非机动车碰撞事故",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "醉酒驾驶",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: actionable-high-risk"
+    },
+    {
+      "term": "饮酒驾驶",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: actionable-high-risk"
+    },
+    {
+      "term": "吸毒驾驶",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: actionable-high-risk"
+    },
+    {
+      "term": "超速行驶",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "闯红灯",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "违法掉头",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "不礼让行人",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "超载",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "超员",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "不按规定使用安全带",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "驾驶证吊销",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "全部责任",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "保险理赔",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "爆闪警示灯",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "隔离墩",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "锥桶",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "急弯路段",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "交通事故黑点",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "车辆打滑",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "安全带",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "安全气囊",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "儿童安全座椅",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "伤员救治绿色通道",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "拖移服务",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车场",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "路外停车",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车泊位",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "平面停车场",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车楼",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车缺口",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车收费标准",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "咪表",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "限时停车泊位",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "充电泊位",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "充电桩",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "私装地锁",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "僵尸车",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "停车周转率",
+      "sourceId": "traffic-safety-parking",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "提示词",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "对话",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "需求",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "原型",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "前端",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "全栈",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "HTML",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "CSS",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "数据库",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "终端",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "报错",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "日志",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "改动对比",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "Git",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "系统提示词",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: instructions-or-markup"
+    },
+    {
+      "term": "集成开发环境",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "包",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "库",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "客户端",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "分支",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "控制台",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "缺陷",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "监控",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "认证",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "限流",
+      "sourceId": "vibe-coding-zh",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "面包屑",
+      "sourceId": "web-interaction-basic",
+      "reason": "Unsafe source candidate: instructions-or-markup"
+    },
+    {
+      "term": "评分",
+      "sourceId": "web-interaction-basic",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "右键菜单",
+      "sourceId": "web-interaction-basic",
+      "reason": "Unsafe source candidate: field-length"
+    },
+    {
+      "term": "伽马",
+      "sourceId": "quant-derivatives",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "首次公开募股",
+      "sourceId": "quant-markets",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "变异系数",
+      "sourceId": "quant-probability",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "夏普比率",
+      "sourceId": "quant-statistics",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "指数移动平均",
+      "sourceId": "quant-strategies",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "相对强弱指数",
+      "sourceId": "quant-strategies",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "简单移动平均",
+      "sourceId": "quant-strategies",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "感知融合",
+      "sourceId": "traffic-its",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "毫米波雷达",
+      "sourceId": "traffic-its",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "激光雷达",
+      "sourceId": "traffic-its",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "自动驾驶",
+      "sourceId": "traffic-its",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "路径规划",
+      "sourceId": "traffic-its",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "自适应控制",
+      "sourceId": "traffic-signal-control",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "Token",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "上下文窗口",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "大语言模型",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "安全",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "嵌入向量",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "幻觉",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "微调",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "智能体",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "检索增强生成",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "模型上下文协议",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "组件",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "软件开发工具包",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "部署",
+      "sourceId": "vibe-coding-zh",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "穿梭框",
+      "sourceId": "web-interaction-1",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "文字链接",
+      "sourceId": "web-interaction-3",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "悬停",
+      "sourceId": "web-interaction-basic",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "最小可行产品",
+      "sourceId": "web-interaction-business",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "可供性",
+      "sourceId": "web-interaction-internet",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "接口",
+      "sourceId": "web-interaction-internet",
+      "reason": "duplicate-term-or-alias"
+    },
+    {
+      "term": "灰度发布",
+      "sourceId": "web-interaction-internet",
+      "reason": "duplicate-term-or-alias"
+    }
+  ]
 }

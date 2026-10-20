@@ -24,11 +24,15 @@ export interface Source {
   id: string;
   repository: string;
   path: string;
-  adapter: 'json' | 'typescript-literal' | 'html-articles';
+  adapter: 'json' | 'jsonl' | 'typescript-literal' | 'javascript-literal' | 'html-literal' | 'html-articles' | 'html-headings' | 'markdown-table';
+  /** Only this top-level literal array is read; downloaded programs are never run. */
+  arrayName?: string;
+  /** Assign only an explicitly admitted subset to this industry. */
+  where?: { field: string; values: string[] };
   domain: Domain;
   limit: number;
-  fields?: { term: string; definition: string; aka?: string };
-  mapping?: { term: string; definition: string; aka?: string };
+  fields?: { term: string; definition: string; aka?: string | string[] };
+  mapping?: { term: string; definition: string; aka?: string | string[] };
   license: SourceLicense;
   licenseHistory?: HistoricalLicense[];
   enabled?: boolean;
@@ -45,6 +49,8 @@ function record(value: unknown): value is Record<string, any> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 const safePath = (s: unknown): s is string => typeof s === 'string' && /^[\w./-]+$/.test(s) && !s.startsWith('/') && !s.split('/').includes('..');
+const safeField = (value: unknown): value is string => typeof value === 'string' && /^[A-Za-z_$][\w$]{0,79}$/.test(value)
+  && !['__proto__', 'prototype', 'constructor'].includes(value);
 function validLicense(value: unknown): value is SourceLicense {
   return record(value) && ALLOWED_LICENSES.includes(value.spdx)
     && safePath(value.textPath) && (value.path === undefined || safePath(value.path))
@@ -63,7 +69,7 @@ export function validateCatalog(value: unknown): asserts value is Source[] {
   for (const s of value) {
     if (!record(s) || !/^[a-z][a-z0-9-]{1,60}$/.test(s.id) || ids.has(s.id)
       || !/^[\w.-]+\/[\w.-]+$/.test(s.repository) || !safePath(s.path)
-      || !['json', 'typescript-literal', 'html-articles'].includes(s.adapter)
+      || !['json', 'jsonl', 'typescript-literal', 'javascript-literal', 'html-literal', 'html-articles', 'html-headings', 'markdown-table'].includes(s.adapter)
       || !DOMAINS.includes(s.domain) || !Number.isInteger(s.limit) || s.limit < 1 || s.limit > 100
       || !validLicense(s.license)) {
       throw new Error(`Invalid catalog entry or unapproved content license: ${s?.id ?? 'unknown'}`);
@@ -73,7 +79,13 @@ export function validateCatalog(value: unknown): asserts value is Source[] {
       throw new Error(`Invalid approved license history or revisions: ${s.id}`);
     }
     const fields = s.fields ?? s.mapping;
-    if (fields && (!record(fields) || !['term', 'definition'].every(k => typeof fields[k] === 'string' && /^[\w]+$/.test(fields[k])))) throw new Error('Invalid source fields');
+    if (fields && (!record(fields) || !['term', 'definition'].every(k => safeField(fields[k]))
+      || (fields.aka !== undefined && !(safeField(fields.aka) || (Array.isArray(fields.aka) && fields.aka.length >= 1
+        && fields.aka.length <= 8 && fields.aka.every(safeField)))))) throw new Error('Invalid source fields');
+    if ((s.arrayName !== undefined && !safeField(s.arrayName)) || (['html-literal', 'javascript-literal'].includes(s.adapter) && !s.arrayName)) throw new Error('Invalid literal array scope');
+    if (s.where !== undefined && (!record(s.where) || !safeField(s.where.field) || !Array.isArray(s.where.values)
+      || !s.where.values.length || s.where.values.length > 1000 || !s.where.values.every((value: unknown) => typeof value === 'string' && value.length >= 1 && value.length <= 100))) throw new Error('Invalid source subset');
+    if (s.adapter === 'html-headings' && !s.where) throw new Error('HTML heading source needs an explicit term subset');
     if (s.domain === 'medical' && (typeof s.authority !== 'string' || s.authority.length < 20)) throw new Error('Medical source needs documented authority');
     if (s.domain === 'legal' && (!s.context?.jurisdiction || !/^\d{4}-\d{2}-\d{2}$/.test(s.context?.asOf ?? ''))) throw new Error('Legal source needs jurisdiction/date');
     ids.add(s.id);
@@ -90,12 +102,12 @@ function stringLiteral(node: ts.Node): string | undefined {
   return ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node) ? node.text : undefined;
 }
 
-function literalObjects(text: string): Record<string, unknown>[] {
+function literalObjects(text: string, arrayName = 'definitions', requireExport = true, allowPush = false): Record<string, unknown>[] {
   const file = ts.createSourceFile('untrusted-source.ts', text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
   const objects: Record<string, unknown>[] = [];
   const visit = (node: ts.Node) => {
     if (ts.isObjectLiteralExpression(node)) {
-      const item: Record<string, unknown> = {};
+      const item: Record<string, unknown> = Object.create(null);
       for (const prop of node.properties) {
         if (!ts.isPropertyAssignment(prop)) continue;
         const key = ts.isIdentifier(prop.name) ? prop.name.text : stringLiteral(prop.name);
@@ -108,9 +120,16 @@ function literalObjects(text: string): Record<string, unknown>[] {
     }
   };
   for (const statement of file.statements) {
-    if (!ts.isVariableStatement(statement) || !statement.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)) continue;
+    if (allowPush && ts.isExpressionStatement(statement) && ts.isCallExpression(statement.expression)) {
+      const call = statement.expression;
+      if (ts.isPropertyAccessExpression(call.expression) && ts.isIdentifier(call.expression.expression)
+        && call.expression.expression.text === arrayName && call.expression.name.text === 'push') {
+        call.arguments.forEach(visit);
+      }
+    }
+    if (!ts.isVariableStatement(statement) || (requireExport && !statement.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword))) continue;
     for (const declaration of statement.declarationList.declarations) {
-      if (ts.isIdentifier(declaration.name) && declaration.name.text === 'definitions' && declaration.initializer && ts.isArrayLiteralExpression(declaration.initializer)) {
+      if (ts.isIdentifier(declaration.name) && declaration.name.text === arrayName && declaration.initializer && ts.isArrayLiteralExpression(declaration.initializer)) {
         for (const element of declaration.initializer.elements) visit(element);
       }
     }
@@ -129,18 +148,42 @@ export function parseSource(source: Source, content: string): Array<Omit<Candida
     const parsed: unknown = JSON.parse(content);
     if (!Array.isArray(parsed)) throw new Error('Source must contain an array');
     rows = parsed;
-  } else if (source.adapter === 'typescript-literal') rows = literalObjects(content);
-  else {
+  } else if (source.adapter === 'jsonl') rows = content.split(/\r?\n/).filter(line => line.trim()).map(line => JSON.parse(line));
+  else if (source.adapter === 'typescript-literal') rows = literalObjects(content, source.arrayName);
+  else if (source.adapter === 'javascript-literal') rows = literalObjects(content, source.arrayName, false, true);
+  else if (source.adapter === 'markdown-table') {
+    rows = content.split(/\r?\n/).filter(line => /^\s*\|.+\|\s*$/.test(line)).flatMap(line => {
+      const cells = line.trim().slice(1, -1).split(/(?<!\\)\|/).map(cell => cell.trim().replace(/\\\|/g, '|'));
+      if (cells.length < 2 || cells.every(cell => /^:?-{3,}:?$/.test(cell))) return [];
+      return [{ [fields.term]: cells[0], [fields.definition]: cells[1] }];
+    });
+  } else if (source.adapter === 'html-headings') {
+    const inert = content.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '').replace(/<!--[\s\S]*?-->/g, '');
+    rows = [...inert.matchAll(/<h([34])\b[^>]*>((?:(?!<\/?h[1-6]\b)[\s\S])*?)<\/h\1\s*>\s*<p\b[^>]*>([\s\S]*?)<\/p\s*>/gi)]
+      .map(match => ({ [fields.term]: textOnly(match[2]), [fields.definition]: textOnly(match[3]) }));
+  }
+  else if (source.adapter === 'html-literal') {
+    rows = [...content.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)].flatMap(match => {
+      if (/\bsrc\s*=/i.test(match[1])) return [];
+      const type = /\btype\s*=\s*["']([^"']*)["']/i.exec(match[1])?.[1]?.toLowerCase();
+      if (type && !['module', 'text/javascript', 'application/javascript'].includes(type)) return [];
+      return literalObjects(match[2], source.arrayName, false);
+    });
+  } else if (source.adapter === 'html-articles') {
     rows = [...content.matchAll(/<article\b[^>]*\bid=["'][a-zA-Z0-9_-]+["'][^>]*>([\s\S]*?)<\/article>/gi)].map(m => {
       const term = /<h3\b[^>]*>([\s\S]*?)<\/h3>/i.exec(m[1]);
       const paragraph = /<p\b[^>]*>([\s\S]*?)<\/p>/i.exec(m[1]);
       return { [fields.term]: term ? textOnly(term[1].replace(/<a\b[^>]*class=["']anchor["'][^>]*>[\s\S]*?<\/a>/gi, '')).replace(/\s*¶\s*$/, '') : '', [fields.definition]: paragraph ? textOnly(paragraph[1]) : '' };
     });
-  }
-  const output = rows.filter(record).filter(row => typeof row[fields.term] === 'string' && typeof row[fields.definition] === 'string').map(row => ({
+  } else throw new Error('Unsupported source adapter');
+  const aliasFields = fields.aka ? (Array.isArray(fields.aka) ? fields.aka : [fields.aka]) : [];
+  const output = rows.filter(record).filter(row => !source.where || source.where.values.includes(row[source.where.field]))
+    .filter(row => typeof row[fields.term] === 'string' && typeof row[fields.definition] === 'string').map(row => ({
     term: (row[fields.term] as string).normalize('NFKC').trim(),
     definition: (row[fields.definition] as string).trim(),
-    aka: fields.aka && Array.isArray(row[fields.aka]) ? row[fields.aka].filter((a: unknown): a is string => typeof a === 'string').map((a: string) => a.trim()) : [],
+    aka: [...new Set(aliasFields.flatMap(field => Array.isArray(row[field]) ? row[field] : [row[field]])
+      .filter((alias: unknown): alias is string => typeof alias === 'string').map((alias: string) => alias.normalize('NFKC').trim())
+      .filter((alias: string) => alias && normalizeTerm(alias) !== normalizeTerm(row[fields.term] as string)))],
   })).filter(row => row.term && row.definition);
   if (!output.length) throw new Error(`Parser produced no entries: ${source.id}`);
   return output;

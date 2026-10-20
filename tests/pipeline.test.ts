@@ -95,6 +95,76 @@ test('adapters do not import unrelated objects or unreviewed HTML articles', () 
   assert.deepEqual(parseSource({ ...source, adapter: 'html-articles' }, html).map(e => e.term), ['Approved']);
 });
 
+test('JSONL reads individual records and scalar English aliases without changing definitions', () => {
+  const jsonl = { ...source, adapter: 'jsonl', fields: { term: 'term_zh', definition: 'definition', aka: ['term_en', 'abbreviation'] } } as Source;
+  const definition = '设有交通信号灯并按配时规则分配通行权的交叉口。';
+  const rows = parseSource(jsonl, `\n${JSON.stringify({ term_zh: '信号交叉口', term_en: 'signalized intersection', abbreviation: 'SI', definition })}\r\n`);
+  assert.deepEqual(rows, [{ term: '信号交叉口', definition, aka: ['signalized intersection', 'SI'] }]);
+  assert.throws(() => parseSource(jsonl, '{"term_zh":"路口"}\nnot JSON'), /JSON|Unexpected/);
+});
+
+test('named literal arrays read only the selected export and never evaluate source expressions', () => {
+  const named = { ...source, adapter: 'typescript-literal', arrayName: 'macro', fields: { term: 'zh', definition: 'definition', aka: ['en', 'abbr'] } } as Source;
+  const content = `export const other = [{zh:'不收录',definition:'不在来源范围内的另一个数组。'}];
+    export const macro = [{zh:'国内生产总值',en:'Gross Domestic Product',abbr:'GDP',definition:'一定时期内一国境内最终产品与服务的市场价值。'},
+      {zh:'动态内容',definition:process.exit(1)}, ...getUntrustedTerms()];`;
+  assert.deepEqual(parseSource(named, content), [{ term: '国内生产总值', definition: '一定时期内一国境内最终产品与服务的市场价值。', aka: ['Gross Domestic Product', 'GDP'] }]);
+  assert.throws(() => parseSource(named, "const macro = [{zh:'未导出',definition:'不允许读取未导出的源文件变量。'}];"), /no entries/);
+});
+
+test('HTML literal adapter extracts only a named inline glossary array, never scripts or unrelated objects', () => {
+  const embedded = { ...source, adapter: 'html-literal', arrayName: 'terms', fields: { term: 'name', definition: 'plain', aka: 'english' } } as Source;
+  const content = `<script src="untrusted.js">const terms=[{name:'外部',plain:'不能读取外部脚本中的词条。'}]</script>
+    <script type="application/ld+json">{"terms":[{"name":"元数据","plain":"这不是允许读取的词条数据。"}]}</script>
+    <script>const other=[{name:'其他',plain:'不在选定的数组之内。'}];
+      const terms=[{name:'版本控制',english:'Version control',plain:'记录文件修改历史，让你知道改了什么，也能回到之前的版本。'},
+        {name:'注入',plain: (() => {throw Error('executed')})()}]; throw Error('never execute');</script>`;
+  assert.deepEqual(parseSource(embedded, content), [{ term: '版本控制', definition: '记录文件修改历史，让你知道改了什么，也能回到之前的版本。', aka: ['Version control'] }]);
+});
+
+test('catalog validates new extraction scopes and alias field selectors', () => {
+  validateCatalog([{ ...source, adapter: 'jsonl', fields: { term: 'term', definition: 'definition', aka: ['en', 'abbr'] } }]);
+  validateCatalog([{ ...source, adapter: 'html-literal', arrayName: 'terms' }]);
+  for (const extra of [
+    { adapter: 'html-literal' }, { adapter: 'typescript-literal', arrayName: 'process.exit()' },
+    { adapter: 'json', fields: { term: 'term', definition: 'definition', aka: ['__proto__'] } },
+    { adapter: 'json', fields: { term: 'term', definition: 'definition', aka: [] } },
+  ]) assert.throws(() => validateCatalog([{ ...source, ...extra }]));
+});
+
+test('JavaScript glossary collection reads scoped declarations and direct push objects, filters by upstream IDs', () => {
+  const scoped = { ...source, adapter: 'javascript-literal', arrayName: 'TERMS', fields: { term: 'zh', definition: 'plain', aka: 'en' },
+    where: { field: 'id', values: ['retention', 'funnel'] } } as Source;
+  validateCatalog([scoped]);
+  const content = `var TERMS=[{id:'retention',zh:'留存',en:'Retention',plain:'今天来的一批新用户，明天还有多少人回来、一周后还有多少人回来'}];
+    TERMS.push({id:'funnel',zh:'转化漏斗',en:'Funnel',plain:'从看到页面到完成购买，每一步留下了多少人，一层一层像漏斗一样变少'},
+      {id:'tooltip',zh:'气泡提示',plain:'这个词条属于其他行业，不能被归到当前分类'});
+    const other=[{id:'retention',zh:'无关',plain:'其他数组不在准入内容范围内。'}];
+    if(false) TERMS.push({id:'retention',zh:'嵌套代码',plain:'嵌套语句中的数据不能被收录。'});`;
+  assert.deepEqual(parseSource(scoped, content).map(row => row.term), ['留存', '转化漏斗']);
+  assert.throws(() => validateCatalog([{ ...scoped, where: { field: '__proto__', values: ['a'] } }]));
+  assert.throws(() => validateCatalog([{ ...scoped, where: { field: 'id', values: [] } }]));
+  assert.throws(() => validateCatalog([{ ...scoped, arrayName: undefined }]));
+});
+
+test('Markdown tables preserve definition cells, ignoring headers, commentary and unapproved terms', () => {
+  const table = { ...source, adapter: 'markdown-table', fields: { term: 'term', definition: 'definition' }, where: { field: 'term', values: ['不可抗力'] } } as Source;
+  const content = '# 法律术语\n说明不是词条。\n\n| 原文术语 | 大白话 | 常见坑 |\n| --- | --- | --- |\n| 不可抗力 | 不是你能控制、预见或避免的事，比如天灾导致合同做不成。 | 不抽取此列 |\n| 诉讼时效 | 过期规则取决于具体法域和法律规定，未列入本次准入范围。 | 排除 |';
+  validateCatalog([table]);
+  assert.deepEqual(parseSource(table, content), [{ term: '不可抗力', definition: '不是你能控制、预见或避免的事，比如天灾导致合同做不成。', aka: [] }]);
+});
+
+test('HTML headings only collect adjacent definition paragraphs from the approved term list', () => {
+  const heading = { ...source, adapter: 'html-headings', fields: { term: 'term', definition: 'definition' }, where: { field: 'term', values: ['患者价值观'] } } as Source;
+  const content = `<script>const fake='<h3>患者价值观</h3><p>脚本中的伪装内容不能作为正文读取。</p>';</script>
+    <h3>概览标题</h3><div>这个标题没有紧邻的定义段落，不能跨越后面的标题匹配。</div>
+    <h3>患者价值观</h3><p>每位患者都有独特的需求、偏好和价值观，这些都应纳入医疗决策考量。</p>
+    <h4>无关标题</h4><p>这段文字不在允许的概念范围之内。</p>`;
+  validateCatalog([heading]);
+  assert.deepEqual(parseSource(heading, content), [{ term: '患者价值观', definition: '每位患者都有独特的需求、偏好和价值观，这些都应纳入医疗决策考量。', aka: [] }]);
+  assert.throws(() => validateCatalog([{ ...heading, where: undefined }]), /scope|subset/);
+});
+
 test('semantic review needs four explicit passes and a substantive reason, not a score', () => {
   checkReview(review);
   assert.throws(() => checkReview({ ...review, faithful: false }));

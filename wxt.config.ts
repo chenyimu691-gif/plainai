@@ -1,6 +1,8 @@
 import { defineConfig } from 'wxt';
 import { readCatalog } from './scripts/dictionary/network';
 import { buildNotices } from './scripts/dictionary/notices';
+import { verifyRelease } from './scripts/dictionary/releases';
+import { canonicalJson } from './lib/dictionary/remote-schema';
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -12,6 +14,8 @@ export default defineConfig({
         if (files[index].relativeDest.startsWith('dictionary/')) files.splice(index, 1);
       }
       const sources = await readCatalog(wxt.config.root);
+      const { snapshot } = await verifyRelease(wxt.config.root, sources);
+      files.push({ relativeDest: 'dictionary-seed.json', contents: canonicalJson(snapshot) });
       const { notices } = await buildNotices(wxt.config.root, sources);
       files.push({ relativeDest: 'dictionary-NOTICES.txt', contents: notices });
     },
@@ -24,7 +28,7 @@ export default defineConfig({
     // 词库以 JSON 形式按需加载（避免把 3000+ 条词库打进 content script）
     web_accessible_resources: [
       {
-        resources: ['dict.json'],
+        resources: ['dict.json', 'dictionary-seed.json'],
         matches: ['<all_urls>'],
       },
     ],

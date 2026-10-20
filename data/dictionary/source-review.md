@@ -1,4 +1,4 @@
-# Reviewed starter sources
+# Reviewed dictionary sources
 
 Reviewed on 2026-10-19. Approval applies only to the listed data paths and the
 original definition text at those paths. A repository's GitHub license badge
@@ -16,6 +16,80 @@ AI/internet terminology. They do **not** establish broad coverage of finance,
 legal, medical, science or education. All eight requested domains can be
 searched for candidates; admitting a new source requires review of its actual
 content permission and an explicit registry update through a PR.
+
+## Chinese source population — 2026-10-20
+
+The v2 snapshot adds **1,169** source-copy entries from the six projects below.
+These are copied Chinese definitions, not model translations or claims of
+specialist/human review. The original 3,093 built-in entries are unchanged.
+Together they provide 4,262 entries after global term/alias deduplication.
+Default industry choices stay unchanged; users opt into the additional libraries.
+
+| Project and reviewed commit | Approved data and content permission | New entries |
+| --- | --- | ---: |
+| [Traffic Terminology Corpus](https://github.com/Luz7818/traffic-terminology/tree/bf213740c6a8210d137acedc555fd0220e6b602b) — `bf213740c6a8210d137acedc555fd0220e6b602b` | Eight primary `data/01_*.jsonl`–`data/08_*.jsonl` files: `term_zh`, `definition`, `term_en`. README explicitly licenses **both corpus and code** CC BY 4.0 and describes the corpus as human-authored. The referenced GB/CJJ/JTG standards are not copied. Colloquial substitutions are not imported as aliases. | science **689** |
+| [Better Quant Wiki](https://github.com/Tomortec/better-quant-wiki/tree/5611485adb669828fcaf704aeb2ce9c8a86886d4) — `5611485adb669828fcaf704aeb2ce9c8a86886d4` | Eight named exported arrays in `src/content/glossary/*.ts`, excluding `index.ts`: `zh`, `definition`, `en`, `abbr`. README explicitly states “Prose in this repo is original” under MIT; the external Quant Wiki supplies topics rather than copied prose. No formulas, exercises or linked content are imported. | finance **204** |
+| [Vibe Coding 术语速查](https://github.com/edwardmqg-dotcom/vibe-coding-glossary-zh/tree/ce82ef4e42da4b261b2b429af4bb6124bec01db2) — `ce82ef4e42da4b261b2b429af4bb6124bec01db2` | `index.html`, static inline `terms` array: `name`, `plain`, `english`. README explicitly publishes code **and original writing** under MIT, by EddieM. No scripts execute and no further-reading material is copied. | technical **44** |
+| [网页交互术语图鉴](https://github.com/guo25476688-cmd/web-interaction-glossary/tree/5d50a7f8af2b30cbd5a03c506be703a41e7a8b21) — `5d50a7f8af2b30cbd5a03c506be703a41e7a8b21` | `js/terms-basic.js` and `js/terms-more-1.js`–`js/terms-more-6.js`, static `TERMS`/direct `TERMS.push` records: `zh`, `plain`, `en`. README describes its authored dictionary fields and publishes the project under MIT. Product research/operations IDs have an explicit business allowlist; interface/interaction records are internet. Exclude demo HTML, prompts, loose aliases and third-party showcase links. Exclude `darkpattern`: its Chinese name “暗黑模式” could be confused with dark display themes although the definition means deceptive design. | internet **213**, business **9** |
+| [循证医学科普](https://github.com/bbylw/Medicine/tree/aa3bf341aa436c120584e98a71fba75bcbe62d9e) — `aa3bf341aa436c120584e98a71fba75bcbe62d9e` | `index.html`, nine allowlisted `h3`/`h4` headings and immediately adjacent `p` text. Root MIT covers this authored education page; no content exception found. README cites Cochrane, WHO Guidelines, GRADE and Guyatt et al., BMJ 2008, DOI `10.1136/bmj.39489.470347.AD`. Those references are context, not permission to copy their texts and not evidence of physician review. Only EBM concepts and cognitive biases are admitted. | medical **9** |
+| [plain-speak](https://github.com/chengwudi1/plain-speak/tree/e3598f3e3caa68c0a1440aad0ac9d302246d522d) — `e3598f3e3caa68c0a1440aad0ac9d302246d522d` | `skills/plain-speak/references/jargon-legal.md`, only the first two columns of the “连带责任” row. README/CONTRIBUTING identify these authored reference tables as core assets under MIT. The file explicitly states Chinese legal context. `asOf=2026-09-06` records the pinned source commit date, not a certification of current law. | legal **1** |
+
+Each source record pins the full upstream license hash and retains the complete
+notice in `licenses/`. Current release artifacts record the exact source commit,
+file, original definition and attribution on every entry. The six full notices
+added here are `traffic-terminology.txt`, `better-quant-wiki.txt`,
+`vibe-coding-zh.txt`, `web-interaction.txt`, `medical-ebm.txt` and
+`plain-speak-legal.txt`. MIT copyright lines are retained, including upstream's
+`free` credit for the Medicine page. CC BY attribution describes field
+normalization and verbatim copying. None of these grants changes embodiedterms'
+existing noncommercial conditions.
+
+The release quarantines **675** collected candidates: English or invalid
+Chinese explanations, unsupported lengths, instructions/markup, high-risk
+content, and term/alias duplicates. Source copies are not truncated or expanded
+to pass length checks. Definitions are not independently clinically or legally
+reviewed, and program checks cannot guarantee semantic correctness.
+
+Coverage is intentionally limited: engineering means mostly traffic engineering;
+business means a small set of digital product research/operations concepts;
+medical means introductory community EBM education, not diagnosis or treatment;
+legal contains one Chinese-context concept. **education remains 0** and must
+still show an empty state in settings.
+
+### Additional candidates excluded in this pass
+
+- `astroicers/security-glossary-tw`: README claims CC BY 4.0 while its checked
+  root `LICENSE` is MIT. Do not resolve this content-license inconsistency by
+  assuming a badge overrides the notice.
+- `DDliu123/baihua-coding`: explicit MIT permission for original glossary text,
+  but sampled summaries contain generic templates and taglines often express
+  user instructions. Not admitted merely to increase counts.
+- `ywEdAi/learning-sciences`: its checked README explicitly says public
+  availability grants **no reuse license**. Do not import its education text.
+- `quanttide/quanttide-context-of-academic-research`: CC BY 4.0 but only a short
+  README; no definitions to collect. Related course/lecture standards have
+  headings rather than explanations.
+- `3loveljw2/autonomous-proposition`: CC BY 4.0, but describes an author's AI
+  exam-writing procedure; it does not supply general education definitions.
+- `uckkk/dsh-law-terms`: ten definitions are all below the admission length,
+  and no documented jurisdiction/date scope was found.
+- Other `plain-speak` legal rows: exclude concrete limitation-period claims,
+  potentially misleading deposit definitions, employment restrictions and
+  overgeneralized waiver statements; do not copy its “common pitfalls” column.
+- `Xing-lion/medpop-science`, `pusws/earlycare`, and medical `plain-speak`:
+  treatment/screening content or insufficiently documented specialist authority
+  are outside this narrow concept-only import.
+
+### Offline availability
+
+The WXT build verifies this release and its catalog before emitting only the
+current snapshot as `dictionary-seed.json`, together with full notices. It does
+not package online release history or deltas. The worker and its page fallback
+load this file on demand, honor selected categories and keep built-ins first.
+A newer online snapshot replaces the entire seed, so deleted terms stay deleted;
+an older cache cannot mask the newer packaged data. This makes the new libraries
+usable in a newly built extension before Pages is configured. This PR does not
+itself deploy or merge them into `main`.
 
 ## Extraction boundaries
 

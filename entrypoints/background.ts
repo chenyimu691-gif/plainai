@@ -1,6 +1,7 @@
 import type { DictEntry } from '../lib/dictionary/types';
 import { CATEGORY_STORAGE_KEY, readCategories, filterCategories } from '../lib/dictionary/categories';
 import { mergeDictionaries } from '../lib/dictionary/remote-schema';
+import { loadPackagedSeed, preferSnapshot } from '../lib/dictionary/packaged-seed';
 import { createRemoteSync, REMOTE_ALARM, REMOTE_STATUS_KEY, type SyncStatus } from '../lib/dictionary/remote-sync';
 
 /** Network access and validation stay in the extension worker, never the visited webpage. */
@@ -11,6 +12,7 @@ export default defineBackground(() => {
     fetch: (...args) => fetch(...args),
   });
   let builtin: Promise<DictEntry[]> | undefined;
+  const seed = loadPackagedSeed(browser.runtime.getURL('/dict.json'));
   function loadBuiltin() {
     if (!builtin) builtin = fetch(browser.runtime.getURL('/dict.json')).then(async response => {
       if (!response.ok) throw new Error('Cannot read built-in dictionary');
@@ -19,8 +21,8 @@ export default defineBackground(() => {
     return builtin;
   }
   async function availableDictionary() {
-    const [own, cache] = await Promise.all([loadBuiltin(), sync.readCache()]);
-    return mergeDictionaries(own, cache?.snapshot.entries ?? []);
+    const [own, cache, packaged] = await Promise.all([loadBuiltin(), sync.readCache(), seed]);
+    return mergeDictionaries(own, preferSnapshot(packaged, cache?.snapshot ?? null)?.entries ?? []);
   }
   async function selection() {
     return readCategories((await browser.storage.local.get(CATEGORY_STORAGE_KEY))[CATEGORY_STORAGE_KEY]);
