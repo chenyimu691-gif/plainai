@@ -1,5 +1,6 @@
 import type { DictEntry } from '../lib/dictionary/types';
 import type { RemoteEntry } from '../lib/dictionary/remote-schema';
+import { CATEGORY_STORAGE_KEY, readCategories, filterCategories } from '../lib/dictionary/categories';
 import { getAIConfig, isLocalFirst, explainWithAI } from '../lib/utils/ai';
 
 export default defineContentScript({
@@ -104,10 +105,6 @@ export default defineContentScript({
     let dictionaryRevision = 0;
     let refreshRevision = 0;
 
-    // 疑似术语自动识别：英文大写缩写（VLA/LLM/RT-2）——即使词库没有也能高亮，悬停走 AI 解释
-    const acronymPattern =
-      '(?<!\\w)([A-Z]{2,8}(?:-[A-Z0-9]+)*|[A-Z]{2,8}[0-9]+(?:-[A-Z0-9]+)*)(?!\\w)';
-
     /**
      * 用词库构建索引与匹配正则。
      * 词库来源：本项目自建词条 + embodiedterms.com（CC BY-NC 4.0）
@@ -127,10 +124,8 @@ export default defineContentScript({
         .sort((a, b) => b.length - a.length)
         .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
         .join('|');
-      combinedRegex = new RegExp(
-        termPattern ? `(?<!\\w)(${termPattern})(?!\\w)|${acronymPattern}` : acronymPattern,
-        'g'
-      );
+      // Only explicitly selected dictionary entries are marked; unknown abbreviations bypass no selection.
+      combinedRegex = termPattern ? new RegExp(`(?<!\\w)(${termPattern})(?!\\w)`, 'g') : null;
     }
 
     // 常见词排除表（人人知道的缩写不标注，避免噪音）
@@ -185,7 +180,7 @@ export default defineContentScript({
         ${remote ? `<div style="margin-top:8px;font-size:11px;line-height:1.5;color:#aaa">
           来源：<a href="${escapeHtml(remote.source.url)}" target="_blank" rel="noopener noreferrer" style="color:#4fc3f7">${escapeHtml(remote.source.attribution)}</a>
           · <a href="${escapeHtml(remote.source.licenseUrl)}" target="_blank" rel="noopener noreferrer" style="color:#4fc3f7">${escapeHtml(remote.source.license)}</a>
-          <br>解释经 AI 改写并独立复核；用于概念学习。
+          <br>${'method' in remote.quality ? '保留来源中文原文，已通过程序检查。' : '解释经 AI 改写并独立复核。'}用于概念学习。
           ${remote.context?.jurisdiction ? `<br>适用地区：${escapeHtml(remote.context.jurisdiction)}；截至 ${escapeHtml(remote.context.asOf ?? '')}` : ''}
         </div>` : ''}
         <div class="term-community">
@@ -420,7 +415,8 @@ export default defineContentScript({
       } catch {
         // A restarting worker must not prevent access to the packaged dictionary.
         const response = await fetch(browser.runtime.getURL('/dict.json'));
-        dict = await response.json() as DictEntry[];
+        const selected = readCategories((await browser.storage.local.get(CATEGORY_STORAGE_KEY))[CATEGORY_STORAGE_KEY]);
+        dict = filterCategories(await response.json() as DictEntry[], selected);
       }
       if (revision !== refreshRevision) return;
       dictionaryRevision++;
@@ -463,7 +459,7 @@ export default defineContentScript({
 
     // Subscribe before the first await so a fast worker update cannot be missed during page startup.
     browser.storage.onChanged.addListener((changes, area) => {
-      if (area === 'local' && 'plainai_remote_dictionary_v1' in changes) {
+      if (area === 'local' && ('plainai_remote_dictionary_v1' in changes || CATEGORY_STORAGE_KEY in changes)) {
         void refreshDictionary().then(scanAndAnnotate).catch(error => console.warn('[PlainAI] 词库刷新失败:', error));
       }
     });

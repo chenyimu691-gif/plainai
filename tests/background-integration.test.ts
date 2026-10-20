@@ -54,10 +54,24 @@ test('worker registers every lifecycle listener synchronously and recreates a mi
 
 test('worker serves validated old cache offline and excludes corrupt cached entries', async () => {
   const h = await worker(); await turn();
-  assert.deepEqual(Array.from(await h.message('GET_DICTIONARY'), (entry: any) => entry.term), ['自建术语', 'Procurement']);
-  assert.equal((await h.message('GET_DICT_STATS')).total, 2);
+  assert.deepEqual(Array.from(await h.message('GET_DICTIONARY'), (entry: any) => entry.term), ['自建术语']);
+  assert.equal((await h.message('GET_DICT_STATS')).availableTotal, 2);
   h.storage[REMOTE_CACHE_KEY].sha256 = 'f'.repeat(64);
   assert.equal((await h.message('GET_DICTIONARY')).length, 1);
+});
+
+test('worker applies multiple category choices to offline lookup and reports available counts separately', async () => {
+  const h = await worker();
+  h.storage.plainai_dictionary_categories = ['business'];
+  assert.deepEqual(Array.from(await h.message('GET_DICTIONARY'), (entry: any) => entry.term), ['Procurement']);
+  const stats = await h.message('GET_DICT_STATS');
+  assert.equal(stats.total, 1);
+  assert.equal(stats.byCategory.business, 1);
+  assert.equal(stats.availableByCategory.general, 1);
+  h.storage.plainai_dictionary_categories = ['general', 'business'];
+  assert.equal((await h.message('GET_DICTIONARY')).length, 2);
+  h.storage.plainai_dictionary_categories = [];
+  assert.equal((await h.message('GET_DICTIONARY')).length, 0);
 });
 
 test('daily alarm respects the check interval and failed network sync retains old snapshot', async () => {

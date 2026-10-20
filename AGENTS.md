@@ -5,7 +5,7 @@
 
 ## 项目是什么
 
-**降维翻译器 PlainAI** —— 一个 Chrome 浏览器扩展（Manifest V3）。用户在网页上阅读时，扩展自动标注行业术语（具身智能 / 机器人 / AI 领域），鼠标悬停显示大白话解释；词库未收录的词调用大模型实时解释。
+**降维翻译器 PlainAI** —— 一个 Chrome 浏览器扩展（Manifest V3）。用户在设置中多选行业词库，网页只标注已选分类的术语和别名，悬停显示大白话解释。自动标注不调用模型，也不标注未收录的英文缩写。
 
 一句话：**把高密度行业黑话翻译成人话**。
 
@@ -20,9 +20,9 @@
 
 ```
 entrypoints/
-  content.tsx        内容脚本：页面扫描 → 术语标注 → tooltip → AI 兜底
-  background.ts      后台：设置页消息（词库统计）
-  popup/             设置页（React）：AI 服务器地址、开关
+  content.tsx        内容脚本：页面扫描、标注、解释、即时刷新已选词库
+  background.ts      后台：合并与筛选词库、同步、统计
+  popup/             设置页（React）：行业多选、更新状态、可选高级设置
 lib/
   dictionary/
     lookup.ts        词库合并入口（fullDictionary，去重、自建优先）
@@ -31,6 +31,7 @@ lib/
     terms-jargon-extra.ts  自建职场黑话词条 ★
     terms-embodiedterms.ts 生成文件，勿手改（CC BY-NC 数据）
     types.ts         DictEntry 类型定义
+    categories.ts    分类选项、默认四类、存储与筛选
   utils/ai.ts        AI 配置读写 + 调用（OpenAI 兼容接口）
 scripts/
   build_dict.py      生成 terms-embodiedterms.ts（需根目录 embodiedterms_zh.json）
@@ -83,13 +84,14 @@ public/dict.json（产物）
 - `getURL()` 的参数必须是 `/dict.json`（**带前导斜杠**），否则 TypeScript 报 `PublicPath` 类型错误
 - 改 `wxt.config.ts` 的 `web_accessible_resources` 后，改动 `public/` 下的新文件需要重新 `npx wxt prepare` 生成类型
 
-### 4. 内容脚本的三层识别机制
+### 4. 内容脚本与行业选择
 
 `content.tsx` 的 `buildIndex()` 构建一个组合正则：
 
-1. **词库精确匹配**：`termMap` 里所有 term + aka 别名
-2. **疑似术语识别**：英文大写缩写（`[A-Z]{2,8}`、`RT-2`、`GR00T`）——即使词库没有也高亮
-3. **常见词过滤**：`COMMON_WORDS` 集合（100+ 个，如 `CEO`/`USB`/`CPU`）不标注，避免噪音
+1. 后台合并内置与已验证远程数据，再按 `plainai_dictionary_categories` 多选值筛选；内置词条与别名全局优先。
+2. **词库精确匹配**：只索引所选分类的 term + aka；空数组代表不标注，缺省值保持原有四类。
+3. **常见词过滤**：`COMMON_WORDS` 集合（100+ 个，如 `CEO`/`USB`/`CPU`）不标注，避免噪音。
+4. 分类或远程缓存变化时移除自有标记并重建，不需要刷新网页；后台不可用时的内置数据回退也必须读取行业选择。不得恢复库外缩写的自动标记来绕过选择。
 
 匹配时用 `(?<!\w)` / `(?!\w)` 做边界：**只防英文粘连，允许中文接续**（"VLA架构" 要能匹配 "VLA"）。
 
@@ -101,11 +103,12 @@ public/dict.json（产物）
 
 改交互时注意保留这几点，否则社群链接点不到。
 
-### 6. AI 兜底
+### 6. 模型配置
 
 - 配置从 `browser.storage.local` 读（`lib/utils/ai.ts`）
 - 接口为 OpenAI 兼容格式：`POST {endpoint}`，body 含 `{model, messages, temperature, max_tokens}`
-- 未配置或请求失败时**静默降级**（显示"未收录"），不能阻塞页面
+- 设置保留在可选的高级区域；不得让行业词库或默认更新依赖模型配置
+- 自动标注只使用已选词库，不自动向模型发送术语
 
 ## 常见任务
 
@@ -116,7 +119,7 @@ public/dict.json（产物）
 ```ts
 {
   term: '术语名',
-  category: 'embodied-ai',   // embodied-ai | robotics | aiml | general
+  category: 'embodied-ai',   // 取值见 types.ts 与 categories.ts（原有四类 + 八个行业）
   plain: '一句话大白话（30 字左右）',
   example: '使用场景（可选）',
   analogy: '生活类比（可选）',
@@ -163,7 +166,9 @@ node scripts/verify.cjs  # 11 项检查
 ## 每周远程词库更新
 
 - Node.js 24；在现有 WXT/TypeScript 中实现，不需要新增后端。
-- `scripts/dictionary/` 负责来源采集、双模型生成与复核、快照和增量；`data/dictionary/` 保存来源、许可证据与已审核数据。
+- `scripts/dictionary/` 默认采集已有中文原文并做程序检查，无需模型或逐条人工审核；英文与不合格解释隔离。显式 `DICTIONARY_MODE=ai` 才启用保留的双模型路径。`data/dictionary/` 保存来源、许可证据与已检查数据。
+- 不得把程序检查描述成语义准确性保证，或伪造模型/人工审核记录；`quality.method=source-copy` 的 `plain` 必须与原始定义完全一致。
+- 行业多选保存在本机并即时应用于内置、远程和回退路径；暂无词条的分类必须如实显示，不得宣传成已有覆盖。
 - `lib/dictionary/remote-schema.ts` 和 `remote-sync.ts` 是构建脚本与扩展共享的协议/同步逻辑；内置词条及别名优先，远程失败保留可用缓存。
 - 新来源和许可证哈希变动必须单独审阅；发现报告不代表来源已批准。原有 CC BY-NC 条件继续适用。
 - 改动更新功能还须运行 `npm test`、`npm run dictionary:verify` 和 `npm run dictionary:build`。`scripts/verify.cjs` 现有 13 项检查，包含完整许可声明和在线发布历史不进入扩展包的验证。

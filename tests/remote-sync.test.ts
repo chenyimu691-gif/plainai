@@ -22,7 +22,7 @@ async function harness(initial: Record<string, unknown> = {}) {
       if (!result) throw new Error('offline'); return typeof result === 'function' ? result() : new Response(result); },
     now: () => new Date('2026-10-19T00:00:00.000Z'),
   });
-  async function serve(version: number, entries = [item()], deltas: unknown[] = []) {
+  async function serve(version: number, entries: unknown[] = [item()], deltas: unknown[] = []) {
     const snapshot = { version, entries };
     const text = canonicalJson(snapshot);
     const digest = await sha256(text);
@@ -45,6 +45,20 @@ test('first sync atomically saves validated snapshot and subsequent offline sync
   await h.core.sync();
   assert.equal((h.storage[REMOTE_CACHE_KEY] as any).snapshot.version, 1);
   assert.match((h.storage[REMOTE_STATUS_KEY] as any).error, /offline/);
+});
+
+test('source-copy entries sync without model evidence and altered copies cannot replace the offline cache', async () => {
+  const h = await harness();
+  const original = item();
+  const copied = { ...original, source: { ...original.source, definition: original.plain },
+    quality: { method: 'source-copy', checkedAt: '2026-10-19T00:00:00.000Z', checks: { chinese: true, verbatim: true, safe: true } } };
+  await h.serve(1, [copied]);
+  await h.core.sync();
+  assert.deepEqual((h.storage[REMOTE_CACHE_KEY] as any).snapshot.entries, [copied]);
+  await h.serve(2, [{ ...copied, plain: '这是来源原文没有的解释，不能作为原样采集发布。' }]);
+  await h.core.sync();
+  assert.equal((h.storage[REMOTE_CACHE_KEY] as any).snapshot.version, 1);
+  assert.match((h.storage[REMOTE_STATUS_KEY] as any).error, /verbatim|source/i);
 });
 
 test('rollback and same-version mutation are rejected without replacing cache', async () => {

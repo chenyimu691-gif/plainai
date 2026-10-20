@@ -33,15 +33,11 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Discover approved candidates, collect, simplify and independently review
+      - name: Collect licensed Chinese definitions and run automated checks
         run: npm run dictionary:update
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          DICTIONARY_API_KEY: ${{ secrets.DICTIONARY_API_KEY }}
-          DICTIONARY_API_BASE: ${{ vars.DICTIONARY_API_BASE }}
-          DICTIONARY_WIRE_API: ${{ vars.DICTIONARY_WIRE_API }}
-          DICTIONARY_GENERATOR_MODEL: ${{ secrets.DICTIONARY_GENERATOR_MODEL }}
-          DICTIONARY_REVIEWER_MODEL: ${{ secrets.DICTIONARY_REVIEWER_MODEL }}
+          DICTIONARY_MODE: source-copy
       - run: npm test
       - run: npm run dictionary:verify
       - run: npm run dictionary:build
@@ -57,17 +53,18 @@ jobs:
           base: ${{ github.event.repository.default_branch }}
           branch: dictionary/weekly-update
           delete-branch: true
-          commit-message: 'chore(dictionary): refresh reviewed weekly entries'
-          title: 'chore(dictionary): weekly reviewed dictionary update'
+          commit-message: 'chore(dictionary): refresh checked weekly entries'
+          title: 'chore(dictionary): weekly dictionary update'
           body: |
             This scheduled data update passed the dictionary license, provenance,
             schema, deduplication and quality checks, offline tests, TypeScript,
             Chrome verification and Firefox build before opening this PR.
 
-            Inspect the entry provenance and review records, discovery candidates
-            and quarantine report. Newly discovered sources remain unapproved;
+            Chinese definitions are copied verbatim from approved licensed sources;
+            no model or per-entry human review is required. English definitions
+            and failed candidates are quarantined. Newly discovered sources remain unapproved;
             source catalog or pinned license changes require a separate human PR.
-            Model review cannot establish absolute semantic correctness.
+            Automated checks do not establish absolute semantic correctness.
 
             Publication occurs only after merge to main and a successful trusted
             Pages deployment. This run does not push directly to main.
@@ -78,13 +75,13 @@ jobs:
             public/dictionary/
       - name: Verify required classic branch protection before auto-merge
         id: merge_guard
-        if: vars.DICTIONARY_AUTO_MERGE == 'true' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.pr.outputs.pull-request-number != ''
+        if: vars.DICTIONARY_AUTO_MERGE != 'false' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.pr.outputs.pull-request-number != ''
         env:
           GH_TOKEN: ${{ secrets.DICTIONARY_BOT_TOKEN }}
           BASE_BRANCH: ${{ github.event.repository.default_branch }}
         run: node --experimental-strip-types scripts/dictionary/merge-guard.ts
-      - name: Request protected auto-merge only when explicitly enabled
-        if: vars.DICTIONARY_AUTO_MERGE == 'true' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.merge_guard.outputs.eligible == 'true' && steps.pr.outputs.pull-request-number != ''
+      - name: Request protected auto-merge after automated checks
+        if: vars.DICTIONARY_AUTO_MERGE != 'false' && env.HAS_DICTIONARY_BOT_TOKEN == 'true' && steps.merge_guard.outputs.eligible == 'true' && steps.pr.outputs.pull-request-number != ''
         env:
           GH_TOKEN: ${{ secrets.DICTIONARY_BOT_TOKEN }}
           PR_NUMBER: ${{ steps.pr.outputs.pull-request-number }}

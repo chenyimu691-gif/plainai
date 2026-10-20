@@ -8,8 +8,8 @@ function protection(): any {
     required_status_checks: { strict: true, contexts: [check], checks: [{ context: check, app_id: 15368 }] },
     enforce_admins: { enabled: true },
     required_pull_request_reviews: {
-      required_approving_review_count: 1,
-      dismiss_stale_reviews: true,
+      required_approving_review_count: 0,
+      dismiss_stale_reviews: false,
       bypass_pull_request_allowances: { users: [], teams: [], apps: [] },
     },
   };
@@ -17,10 +17,6 @@ function protection(): any {
 
 test('auto-merge requires effective classic protection and independently enforced quality checks', () => {
   assert.equal(protectionAllowsAutoMerge(protection()), true);
-  const automated = protection();
-  automated.required_pull_request_reviews.required_approving_review_count = 0;
-  automated.required_pull_request_reviews.dismiss_stale_reviews = false;
-  assert.equal(protectionAllowsAutoMerge(automated), true, 'required PRs and strict CI may permit automatic publication without human approval');
   const unsafe = [null, {}, { ...protection(), required_status_checks: null },
     { ...protection(), enforce_admins: { enabled: false } },
     { ...protection(), required_pull_request_reviews: null }];
@@ -29,7 +25,7 @@ test('auto-merge requires effective classic protection and independently enforce
     (p: any) => { p.required_status_checks.contexts = ['unrelated check']; p.required_status_checks.checks = []; },
     (p: any) => { p.required_pull_request_reviews.required_approving_review_count = -1; },
     (p: any) => { p.required_pull_request_reviews.required_approving_review_count = 0.5; },
-    (p: any) => { p.required_pull_request_reviews.dismiss_stale_reviews = false; },
+    (p: any) => { p.required_pull_request_reviews.required_approving_review_count = 1; p.required_pull_request_reviews.dismiss_stale_reviews = true; },
     (p: any) => { delete p.required_pull_request_reviews.bypass_pull_request_allowances; },
     (p: any) => { p.required_pull_request_reviews.bypass_pull_request_allowances.users = [{ login: 'bot' }]; },
     (p: any) => { p.required_pull_request_reviews.bypass_pull_request_allowances.teams = [{ slug: 'maintainers' }]; },

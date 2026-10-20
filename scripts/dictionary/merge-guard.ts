@@ -2,7 +2,7 @@ import { appendFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
 const REQUIRED_CHECK = 'Dictionary quality and extension build';
-const MANUAL = 'Auto-merge skipped: classic branch protection could not be verified; leave the PR for manual review.';
+const NOT_CONFIGURED = 'Auto-merge skipped: verify classic branch protection with required CI, zero required human approvals and no bypass allowances. The data PR remains unpublished.';
 type ObjectValue = Record<string, unknown>;
 const object = (value: unknown): ObjectValue | undefined =>
   value !== null && typeof value === 'object' && !Array.isArray(value) ? value as ObjectValue : undefined;
@@ -18,10 +18,7 @@ export function protectionAllowsAutoMerge(value: unknown): boolean {
   return Boolean(
     checks?.strict === true && requiredCheck
     && object(protection?.enforce_admins)?.enabled === true
-    && typeof reviews?.required_approving_review_count === 'number'
-    && Number.isInteger(reviews.required_approving_review_count)
-    && reviews.required_approving_review_count >= 0
-    && (reviews.required_approving_review_count === 0 || reviews.dismiss_stale_reviews === true)
+    && reviews?.required_approving_review_count === 0
     && bypass && ['users', 'teams', 'apps'].every(key => Array.isArray(bypass[key]) && bypass[key].length === 0)
   );
 }
@@ -33,7 +30,7 @@ export async function checkMergeProtection(config: {
   fetch?: typeof globalThis.fetch;
 }): Promise<{ eligible: boolean; reason: string }> {
   if (!/^[\w.-]+\/[\w.-]+$/.test(config.repository) || !config.branch.trim() || !config.token.trim()) {
-    return { eligible: false, reason: MANUAL };
+    return { eligible: false, reason: NOT_CONFIGURED };
   }
   try {
     const response = await (config.fetch ?? globalThis.fetch)(
@@ -49,12 +46,12 @@ export async function checkMergeProtection(config: {
       },
     );
     if (response.status !== 200 || !protectionAllowsAutoMerge(await response.json())) {
-      return { eligible: false, reason: MANUAL };
+      return { eligible: false, reason: NOT_CONFIGURED };
     }
     return { eligible: true, reason: 'Classic branch protection verified; requesting protected auto-merge.' };
   } catch {
     // Do not expose token-bearing network/provider error messages in Actions logs.
-    return { eligible: false, reason: MANUAL };
+    return { eligible: false, reason: NOT_CONFIGURED };
   }
 }
 

@@ -4,7 +4,7 @@ import ts from 'typescript';
 import {
   ALLOWED_LICENSES, DOMAINS, normalizeTerm, validateRemoteEntry,
 } from '../../lib/dictionary/remote-schema.ts';
-import type { AllowedLicense, Domain, RemoteEntry } from '../../lib/dictionary/remote-schema.ts';
+import type { AllowedLicense, Domain, RemoteEntry, ModelQuality, SourceQuality } from '../../lib/dictionary/remote-schema.ts';
 import type { DictEntry } from '../../lib/dictionary/types.ts';
 
 export interface SourceLicense {
@@ -176,7 +176,7 @@ export function checkReview(value: unknown): asserts value is Review {
 }
 
 export function createEntry(candidate: Candidate, rewrite: unknown, review: unknown,
-  run: { generator: string; reviewer: string; now: string }): RemoteEntry {
+  run: { generator: string; reviewer: string; now: string }): RemoteEntry & { quality: ModelQuality } {
   checkReview(review);
   if (!record(rewrite) || Object.keys(rewrite).some(key => !['plain', 'analogy', 'example'].includes(key))) throw new Error('Invalid translation fields');
   if (sourceSafety(candidate)) throw new Error('Unsafe source candidate');
@@ -193,5 +193,23 @@ export function createEntry(candidate: Candidate, rewrite: unknown, review: unkn
     ...(source.context ? { context: source.context } : {}),
   };
   validateRemoteEntry(entry);
-  return entry;
+  return entry as RemoteEntry & { quality: ModelQuality };
+}
+
+/** Copy only already-Chinese definitions. No translation, model call or semantic approval is implied. */
+export function createSourceEntry(candidate: Candidate, now: string): RemoteEntry & { quality: SourceQuality } {
+  const reason = sourceSafety(candidate);
+  if (reason) throw new Error(`Unsafe source candidate: ${reason}`);
+  const { source, revision, term, definition, aka } = candidate;
+  const entry = {
+    id: entryId(source.domain, term), term, category: source.domain, plain: definition,
+    ...(aka.length ? { aka } : {}),
+    source: { id: source.id, url: `https://github.com/${source.repository}/blob/${revision}/${source.path}`,
+      revision, license: source.license.spdx, licenseUrl: `https://github.com/${source.repository}/blob/${revision}/${source.license.path ?? 'LICENSE'}`,
+      licenseSha256: source.license.sha256, attribution: source.license.attribution, definition },
+    quality: { method: 'source-copy', checkedAt: now, checks: { chinese: true, verbatim: true, safe: true } },
+    ...(source.context ? { context: source.context } : {}),
+  };
+  validateRemoteEntry(entry);
+  return entry as RemoteEntry & { quality: SourceQuality };
 }

@@ -29,8 +29,9 @@ test('published notices retain current and historical complete texts without nor
       { name: 'fixture-source.txt', text: current },
       { name: `fixture-source-${digest(historical)}.txt`, text: historical },
     ]);
-    assert.ok(built.notices.includes(`Current Authors\nChanges: Chinese translation and plain-language adaptation by PlainAI.\n${current}`));
-    assert.ok(built.notices.includes(`Previous Authors\nChanges: Chinese translation and plain-language adaptation by PlainAI.\n${historical}`));
+    const changes = 'Changes: source-copy entries preserve Chinese source text; model-generated entries are Chinese translations and plain-language adaptations by PlainAI. See each entry quality record.';
+    assert.ok(built.notices.includes(`Current Authors\n${changes}\n${current}`));
+    assert.ok(built.notices.includes(`Previous Authors\n${changes}\n${historical}`));
     assert.ok(built.notices.includes('a'.repeat(40)), 'historical notice identifies its approved revision');
     assert.ok(Buffer.from(built.notices).includes(Buffer.from(historical)), 'the original historical notice bytes are included unchanged');
   } finally { await rm(root, { recursive: true, force: true }); }

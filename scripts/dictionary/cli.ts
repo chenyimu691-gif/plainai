@@ -5,7 +5,7 @@ import { readCatalog, collectSources, discoverSources } from './network.ts';
 import { verifyRelease, writeRelease } from './releases.ts';
 import { readModelConfig, simplifyAndReview } from './llm.ts';
 import { buildNotices } from './notices.ts';
-import { planUpdate, parseQuarantine } from './update.ts';
+import { planUpdate, planSourceUpdate, parseQuarantine } from './update.ts';
 import { DOMAINS } from '../../lib/dictionary/remote-schema.ts';
 import type { DictEntry } from '../../lib/dictionary/types.ts';
 
@@ -32,7 +32,7 @@ async function main(command: string) {
     }
     await writeFile(join(site, 'dictionary/THIRD_PARTY_NOTICES.txt'), notices);
     await writeFile(join(site, '.nojekyll'), '');
-    await writeFile(join(site, 'index.html'), `<!doctype html><meta charset="utf-8"><title>PlainAI 词库更新</title><h1>PlainAI 词库更新服务</h1><p>版本 ${manifest.version}，在线词条 ${manifest.count} 条。</p><p>词条为通俗改写，保留来源及各自许可证；已有内置词库的 CC BY-NC 条件继续适用。</p><p><a href="dictionary/manifest.json">版本信息</a> · <a href="dictionary/THIRD_PARTY_NOTICES.txt">完整来源与许可声明</a></p>`);
+    await writeFile(join(site, 'index.html'), `<!doctype html><meta charset="utf-8"><title>PlainAI 词库更新</title><h1>PlainAI 词库更新服务</h1><p>版本 ${manifest.version}，在线词条 ${manifest.count} 条。</p><p>词条保留来源及各自许可证，逐条记录原文采集或模型改写方式；已有内置词库的 CC BY-NC 条件继续适用。</p><p><a href="dictionary/manifest.json">版本信息</a> · <a href="dictionary/THIRD_PARTY_NOTICES.txt">完整来源与许可声明</a></p>`);
     console.log(`Staged verified Pages dictionary v${manifest.version}`);
   } else if (command === 'discover') {
     const candidates = await discoverSources({ token: process.env.GITHUB_TOKEN });
@@ -43,7 +43,9 @@ async function main(command: string) {
     const counts = Object.fromEntries(sources.map(s => [s.id, candidates.filter(c => c.source.id === s.id).length]));
     console.log(JSON.stringify({ licenseAndCollection: 'passed', counts }));
   } else if (command === 'update') {
-    const config = readModelConfig(); // Fail before downloads/writes if live credentials are absent.
+    const mode = process.env.DICTIONARY_MODE?.trim() || 'source-copy';
+    if (mode !== 'source-copy' && mode !== 'ai') throw new Error('DICTIONARY_MODE must be source-copy or ai');
+    const config = mode === 'ai' ? readModelConfig() : null;
     const previous = await verifyRelease(root, sources);
     let priorQuarantine = { items: [] } as unknown;
     try { priorQuarantine = JSON.parse(await readFile(join(root, 'data/dictionary/quarantine.json'), 'utf8')); }
@@ -53,13 +55,14 @@ async function main(command: string) {
     const discovered = await discoverSources({ token: process.env.GITHUB_TOKEN });
     const candidates = await collectSources(sources, { token: process.env.GITHUB_TOKEN });
     const now = new Date().toISOString();
-    const result = await planUpdate({ candidates, builtin, previous: previous.snapshot.entries, previousQuarantine,
-      run: { generator: config.generator, reviewer: config.reviewer, now }, simplify: c => simplifyAndReview(c, config) });
+    const result = config ? await planUpdate({ candidates, builtin, previous: previous.snapshot.entries, previousQuarantine,
+      run: { generator: config.generator, reviewer: config.reviewer, now }, simplify: c => simplifyAndReview(c, config) })
+      : planSourceUpdate({ candidates, builtin, previous: previous.snapshot.entries, now });
     const release = await writeRelease(root, result.entries, now);
     await verifyRelease(root, sources);
     await writeData('discovered', { domains: DOMAINS, candidates: discovered });
     await writeData('quarantine', { items: result.quarantine });
-    console.log(JSON.stringify({ changed: release.changed, version: release.manifest.version,
+    console.log(JSON.stringify({ mode, changed: release.changed, version: release.manifest.version,
       entries: result.entries.length, quarantined: result.quarantine.length, modelPairs: result.calls }));
   } else throw new Error('Usage: dictionary CLI <verify|build|discover|probe|update>');
 }

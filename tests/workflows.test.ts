@@ -28,6 +28,9 @@ test('weekly generation creates an allowlisted data PR only after validation', (
   const config = workflow('dictionary-weekly');
   assert.equal(config.on.schedule[0].cron, '0 2 * * 1');
   const job = config.jobs.update;
+  const update = job.steps.find((step: any) => step.run === 'npm run dictionary:update');
+  assert.equal(update.env.DICTIONARY_MODE, 'source-copy');
+  assert.doesNotMatch(JSON.stringify(update.env), /DICTIONARY_API_KEY|GENERATOR_MODEL|REVIEWER_MODEL/);
   assert.match(job.if, /github\.ref/);
   assert.match(job.if, /default_branch/);
   const prIndex = job.steps.findIndex((step: any) => step.uses?.startsWith('peter-evans/create-pull-request@'));
@@ -45,6 +48,7 @@ test('weekly generation creates an allowlisted data PR only after validation', (
   assert.doesNotMatch(JSON.stringify(job), /git push|--admin/);
   const autoMerge = job.steps.find((step: any) => step.run?.includes('gh pr merge'));
   assert.match(autoMerge.if, /DICTIONARY_AUTO_MERGE/);
+  assert.match(autoMerge.if, /DICTIONARY_AUTO_MERGE != 'false'/);
   assert.match(autoMerge.if, /HAS_DICTIONARY_BOT_TOKEN/);
   const guardIndex = job.steps.findIndex((step: any) => step.id === 'merge_guard');
   assert.ok(guardIndex > prIndex && guardIndex < job.steps.indexOf(autoMerge));

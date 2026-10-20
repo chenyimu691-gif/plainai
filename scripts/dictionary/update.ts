@@ -1,7 +1,7 @@
 import type { DictEntry } from '../../lib/dictionary/types.ts';
 import type { RemoteEntry } from '../../lib/dictionary/remote-schema.ts';
 import { canonicalJson, normalizeTerm } from '../../lib/dictionary/remote-schema.ts';
-import { chooseCandidates, createEntry, entryId } from './core.ts';
+import { chooseCandidates, createEntry, createSourceEntry, entryId } from './core.ts';
 import type { Candidate } from './core.ts';
 
 export interface QuarantineRecord { term: string; sourceId: string; reason: string; deferredSince?: string }
@@ -16,6 +16,34 @@ export function parseQuarantine(value: unknown): QuarantineRecord[] {
   return value.items;
 }
 const queueKey = (sourceId: string, term: string) => `${sourceId}:${normalizeTerm(term)}`;
+
+/** Deterministic default path: no API credentials, model calls, rewriting or per-entry human approval. */
+export function planSourceUpdate(options: {
+  candidates: Candidate[]; builtin: Array<Pick<DictEntry, 'term' | 'aka'>>; previous: RemoteEntry[]; now: string;
+}) {
+  const valid: Candidate[] = [];
+  const quarantine: QuarantineRecord[] = [];
+  for (const candidate of options.candidates) {
+    try { createSourceEntry(candidate, options.now); valid.push(candidate); }
+    catch (error) { quarantine.push({ term: candidate.term, sourceId: candidate.source.id,
+      reason: (error instanceof Error ? error.message : 'source-copy-rejected').slice(0, 250) }); }
+  }
+  const chosen = chooseCandidates(valid, options.builtin, 3000);
+  quarantine.push(...chosen.rejected);
+  const previous = new Map(options.previous.map(entry => [entry.id, entry]));
+  const content = (entry: RemoteEntry) => {
+    const { quality: _quality, ...fields } = entry;
+    return canonicalJson({ ...fields, source: { ...entry.source, revision: '',
+      url: entry.source.url.replace(entry.source.revision, ''), licenseUrl: entry.source.licenseUrl.replace(entry.source.revision, '') } });
+  };
+  const entries = chosen.accepted.map(candidate => {
+    const entry = createSourceEntry(candidate, options.now);
+    const old = previous.get(entry.id);
+    if (old && 'method' in old.quality && old.quality.method === 'source-copy' && content(old) === content(entry)) return old;
+    return entry;
+  });
+  return { entries: entries.sort((a, b) => a.id.localeCompare(b.id, 'en')), quarantine, calls: 0 };
+}
 
 /** All I/O is outside the planner; provider errors abort before any release is written. */
 export async function planUpdate(options: {

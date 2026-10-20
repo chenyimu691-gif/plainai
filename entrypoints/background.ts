@@ -1,4 +1,5 @@
 import type { DictEntry } from '../lib/dictionary/types';
+import { CATEGORY_STORAGE_KEY, readCategories, filterCategories } from '../lib/dictionary/categories';
 import { mergeDictionaries } from '../lib/dictionary/remote-schema';
 import { createRemoteSync, REMOTE_ALARM, REMOTE_STATUS_KEY, type SyncStatus } from '../lib/dictionary/remote-sync';
 
@@ -17,9 +18,16 @@ export default defineBackground(() => {
     }).catch(error => { builtin = undefined; throw error; });
     return builtin;
   }
-  async function dictionary() {
+  async function availableDictionary() {
     const [own, cache] = await Promise.all([loadBuiltin(), sync.readCache()]);
     return mergeDictionaries(own, cache?.snapshot.entries ?? []);
+  }
+  async function selection() {
+    return readCategories((await browser.storage.local.get(CATEGORY_STORAGE_KEY))[CATEGORY_STORAGE_KEY]);
+  }
+  async function dictionary() {
+    const [entries, selected] = await Promise.all([availableDictionary(), selection()]);
+    return filterCategories(entries, selected);
   }
   async function ensureAlarm() {
     // Chrome may clear alarms when restarting; recreate rather than rely on installation alone.
@@ -42,10 +50,13 @@ export default defineBackground(() => {
       case 'GET_DICTIONARY': return dictionary();
       case 'GET_DICT_STATS': {
         try {
-          const entries = await dictionary();
+          const [available, selected] = await Promise.all([availableDictionary(), selection()]);
+          const entries = filterCategories(available, selected);
           const byCategory: Record<string, number> = {};
+          const availableByCategory: Record<string, number> = {};
           for (const entry of entries) byCategory[entry.category] = (byCategory[entry.category] ?? 0) + 1;
-          return { total: entries.length, byCategory };
+          for (const entry of available) availableByCategory[entry.category] = (availableByCategory[entry.category] ?? 0) + 1;
+          return { total: entries.length, byCategory, availableTotal: available.length, availableByCategory };
         } catch (error) { console.error('[PlainAI] 词库统计读取失败:', error); return null; }
       }
       case 'GET_DICT_STATUS': return (await browser.storage.local.get(REMOTE_STATUS_KEY))[REMOTE_STATUS_KEY] ?? null;

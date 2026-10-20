@@ -7,6 +7,15 @@ export type AllowedLicense = typeof ALLOWED_LICENSES[number];
 export const MAX_PAYLOAD_BYTES = 3 * 1024 * 1024;
 export const MAX_ENTRIES = 3000;
 
+export interface ModelQuality {
+  generator: string; reviewer: string; promptVersion: '1'; reviewedAt: string; reason: string;
+  checks: { faithful: true; plainLanguage: true; domainCorrect: true; safe: true };
+}
+export interface SourceQuality {
+  method: 'source-copy'; checkedAt: string;
+  checks: { chinese: true; verbatim: true; safe: true };
+}
+
 export interface RemoteEntry extends DictEntry {
   id: string;
   category: Domain;
@@ -14,10 +23,7 @@ export interface RemoteEntry extends DictEntry {
     id: string; url: string; revision: string; license: AllowedLicense; licenseUrl: string;
     licenseSha256: string; attribution: string; definition: string;
   };
-  quality: {
-    generator: string; reviewer: string; promptVersion: '1'; reviewedAt: string; reason: string;
-    checks: { faithful: true; plainLanguage: true; domainCorrect: true; safe: true };
-  };
+  quality: ModelQuality | SourceQuality;
   context?: { jurisdiction?: string; asOf?: string };
 }
 export interface Snapshot { version: number; entries: RemoteEntry[] }
@@ -71,6 +77,13 @@ function pinnedSource(value: unknown, revision: string) {
 
 export function normalizeTerm(value: string): string { return value.normalize('NFKC').trim().replace(/\s+/g, ' ').toLowerCase(); }
 
+/** Language screening only; this does not establish semantic accuracy or readability. */
+export function isChineseDefinition(value: string): boolean {
+  const chinese = (value.match(/[\u3400-\u9FFF]/g) ?? []).length;
+  const letters = (value.match(/[a-zA-Z\u3400-\u9FFF]/g) ?? []).length;
+  return chinese >= 8 && chinese / Math.max(letters, 1) >= 0.4;
+}
+
 /** Shared browser/Node canonical encoding. Arrays retain their deliberate order. */
 export function canonicalJson(value: unknown): string {
   const ancestors = new Set<object>();
@@ -121,13 +134,21 @@ export function validateRemoteEntry(value: unknown): asserts value is RemoteEntr
   if (!ALLOWED_LICENSES.includes(value.source.license as AllowedLicense)) fail('license not allowed');
   text(value.source.attribution, 'attribution', 400); text(value.source.definition, 'source definition', 2000);
   object(value.quality, 'quality');
-  fields(value.quality, ['generator', 'reviewer', 'promptVersion', 'reviewedAt', 'reason', 'checks']);
-  text(value.quality.generator, 'generator', 150); text(value.quality.reviewer, 'reviewer', 150);
-  text(value.quality.reason, 'review reason', 500, 8);
-  if (value.quality.generator === value.quality.reviewer) fail('reviewer must be independent');
-  if (value.quality.promptVersion !== '1') fail('unknown prompt version'); timestamp(value.quality.reviewedAt);
-  object(value.quality.checks, 'quality checks');
-  fields(value.quality.checks, ['faithful', 'plainLanguage', 'domainCorrect', 'safe']);
+  if (value.quality.method === 'source-copy') {
+    fields(value.quality, ['method', 'checkedAt', 'checks']); timestamp(value.quality.checkedAt);
+    if (!isChineseDefinition(value.plain) || value.plain !== value.source.definition
+      || value.example !== undefined || value.analogy !== undefined) fail('source-copy must preserve a Chinese source verbatim');
+    object(value.quality.checks, 'quality checks');
+    fields(value.quality.checks, ['chinese', 'verbatim', 'safe']);
+  } else {
+    fields(value.quality, ['generator', 'reviewer', 'promptVersion', 'reviewedAt', 'reason', 'checks']);
+    text(value.quality.generator, 'generator', 150); text(value.quality.reviewer, 'reviewer', 150);
+    text(value.quality.reason, 'review reason', 500, 8);
+    if (value.quality.generator === value.quality.reviewer) fail('reviewer must be independent');
+    if (value.quality.promptVersion !== '1') fail('unknown prompt version'); timestamp(value.quality.reviewedAt);
+    object(value.quality.checks, 'quality checks');
+    fields(value.quality.checks, ['faithful', 'plainLanguage', 'domainCorrect', 'safe']);
+  }
   if (Object.values(value.quality.checks).some(check => check !== true)) fail('quality checks must all pass');
   if (value.context !== undefined) {
     object(value.context, 'context'); fields(value.context, [], ['jurisdiction', 'asOf']);

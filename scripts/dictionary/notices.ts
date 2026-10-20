@@ -16,7 +16,7 @@ export async function buildNotices(root: string, sources: Source[]): Promise<{
       // Keep the complete UTF-8 notice unchanged: no trimming or newline conversion.
       const text = await readFile(join(root, license.textPath), 'utf8');
       licenses.set(name, text);
-      notices.push(`${label}\nLicense: ${license.spdx}\n${license.attribution}\nChanges: Chinese translation and plain-language adaptation by PlainAI.\n${text}`);
+      notices.push(`${label}\nLicense: ${license.spdx}\n${license.attribution}\nChanges: source-copy entries preserve Chinese source text; model-generated entries are Chinese translations and plain-language adaptations by PlainAI. See each entry quality record.\n${text}`);
     }
   }
   return { notices: notices.join('\n\n---\n\n'), licenses: [...licenses].map(([name, text]) => ({ name, text })) };
